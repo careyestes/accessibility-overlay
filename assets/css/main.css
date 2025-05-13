@@ -1,0 +1,20 @@
+
+
+.button-container {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  display: flex;
+  gap: 1rem;
+  padding: 1rem 1rem;
+  background: black;
+  border-radius: 1rem;
+  border: 1px solid #eee;
+}
+.button-container button {
+  padding: 0.5rem 1rem;
+  background: #222;
+  color: white;
+  border: 1px solid #444;
+  border-radius: 0.75rem;
+}
