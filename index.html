@@ -1,12 +1,244 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
   <title>Accessibility Overlay</title>
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <!-- <link rel="stylesheet" href="https://unpkg.com/missing.css@1.0.9/dist/missing.min.css"> -->
-  <link rel="stylesheet" media="all" href="https://cdn.onemain.co/assets/silo-e2d81c12bae5b49206b00325b9dcd4d8b9426a944aaa569df5a5e47eb0ba9984.css">
-  <!-- <link rel="stylesheet" type="text/css" href="/assets/css/main.css" /> -->
+  <meta charset="utf-8">
+  <!-- <base href="/"> -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <style id="swiper-element-styles">
+    @font-face{font-family:swiper-icons;src:url('data:application/font-woff;charset=utf-8;base64, d09GRgABAAAAAAZgABAAAAAADAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABGRlRNAAAGRAAAABoAAAAci6qHkUdERUYAAAWgAAAAIwAAACQAYABXR1BPUwAABhQAAAAuAAAANuAY7+xHU1VCAAAFxAAAAFAAAABm2fPczU9TLzIAAAHcAAAASgAAAGBP9V5RY21hcAAAAkQAAACIAAABYt6F0cBjdnQgAAACzAAAAAQAAAAEABEBRGdhc3AAAAWYAAAACAAAAAj//wADZ2x5ZgAAAywAAADMAAAD2MHtryVoZWFkAAABbAAAADAAAAA2E2+eoWhoZWEAAAGcAAAAHwAAACQC9gDzaG10eAAAAigAAAAZAAAArgJkABFsb2NhAAAC0AAAAFoAAABaFQAUGG1heHAAAAG8AAAAHwAAACAAcABAbmFtZQAAA/gAAAE5AAACXvFdBwlwb3N0AAAFNAAAAGIAAACE5s74hXjaY2BkYGAAYpf5Hu/j+W2+MnAzMYDAzaX6QjD6/4//Bxj5GA8AuRwMYGkAPywL13jaY2BkYGA88P8Agx4j+/8fQDYfA1AEBWgDAIB2BOoAeNpjYGRgYNBh4GdgYgABEMnIABJzYNADCQAACWgAsQB42mNgYfzCOIGBlYGB0YcxjYGBwR1Kf2WQZGhhYGBiYGVmgAFGBiQQkOaawtDAoMBQxXjg/wEGPcYDDA4wNUA2CCgwsAAAO4EL6gAAeNpj2M0gyAACqxgGNWBkZ2D4/wMA+xkDdgAAAHjaY2BgYGaAYBkGRgYQiAHyGMF8FgYHIM3DwMHABGQrMOgyWDLEM1T9/w8UBfEMgLzE////P/5//f/V/xv+r4eaAAeMbAxwIUYmIMHEgKYAYjUcsDAwsLKxc3BycfPw8jEQA/gZBASFhEVExcQlJKWkZWTl5BUUlZRVVNXUNTQZBgMAAMR+E+gAEQFEAAAAKgAqACoANAA+AEgAUgBcAGYAcAB6AIQAjgCYAKIArAC2AMAAygDUAN4A6ADyAPwBBgEQARoBJAEuATgBQgFMAVYBYAFqAXQBfgGIAZIBnAGmAbIBzgHsAAB42u2NMQ6CUAyGW568x9AneYYgm4MJbhKFaExIOAVX8ApewSt4Bic4AfeAid3VOBixDxfPYEza5O+Xfi04YADggiUIULCuEJK8VhO4bSvpdnktHI5QCYtdi2sl8ZnXaHlqUrNKzdKcT8cjlq+rwZSvIVczNiezsfnP/uznmfPFBNODM2K7MTQ45YEAZqGP81AmGGcF3iPqOop0r1SPTaTbVkfUe4HXj97wYE+yNwWYxwWu4v1ugWHgo3S1XdZEVqWM7ET0cfnLGxWfkgR42o2PvWrDMBSFj/IHLaF0zKjRgdiVMwScNRAoWUoH78Y2icB/yIY09An6AH2Bdu/UB+yxopYshQiEvnvu0dURgDt8QeC8PDw7Fpji3fEA4z/PEJ6YOB5hKh4dj3EvXhxPqH/SKUY3rJ7srZ4FZnh1PMAtPhwP6fl2PMJMPDgeQ4rY8YT6Gzao0eAEA409DuggmTnFnOcSCiEiLMgxCiTI6Cq5DZUd3Qmp10vO0LaLTd2cjN4fOumlc7lUYbSQcZFkutRG7g6JKZKy0RmdLY680CDnEJ+UMkpFFe1RN7nxdVpXrC4aTtnaurOnYercZg2YVmLN/d/gczfEimrE/fs/bOuq29Zmn8tloORaXgZgGa78yO9/cnXm2BpaGvq25Dv9S4E9+5SIc9PqupJKhYFSSl47+Qcr1mYNAAAAeNptw0cKwkAAAMDZJA8Q7OUJvkLsPfZ6zFVERPy8qHh2YER+3i/BP83vIBLLySsoKimrqKqpa2hp6+jq6RsYGhmbmJqZSy0sraxtbO3sHRydnEMU4uR6yx7JJXveP7WrDycAAAAAAAH//wACeNpjYGRgYOABYhkgZgJCZgZNBkYGLQZtIJsFLMYAAAw3ALgAeNolizEKgDAQBCchRbC2sFER0YD6qVQiBCv/H9ezGI6Z5XBAw8CBK/m5iQQVauVbXLnOrMZv2oLdKFa8Pjuru2hJzGabmOSLzNMzvutpB3N42mNgZGBg4GKQYzBhYMxJLMlj4GBgAYow/P/PAJJhLM6sSoWKfWCAAwDAjgbRAAB42mNgYGBkAIIbCZo5IPrmUn0hGA0AO8EFTQAA');font-weight:400;font-style:normal}
+  </style>
+  <style>
+    :root{
+      --anchor-color:inherit;
+      --anchor-decoration:none;
+      --bold-weight:500;
+      --list-item-checkmark: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16' fill='none'><path d='M14.3333 1.66675L5.99999 14.3334L1.66666 9.33341' stroke='%232659D9'  stroke-linecap='round' stroke-linejoin='round'/></svg>")
+    }
+    *,:before,:after {
+      box-sizing:border-box;
+      border-width:0;
+      border-style:solid;
+      border-color:#e5e7eb
+    }
+    :before,:after {
+      --tw-content:""
+    }
+    html {
+      line-height:1.5;
+      -webkit-text-size-adjust:100%;
+      tab-size:4;
+      font-family:Merchant,ui-sans-serif,system-ui,sans-serif,"Apple Color Emoji","Segoe UI Emoji",Segoe UI Symbol,"Noto Color Emoji";
+      font-feature-settings:normal;
+      font-variation-settings:normal;
+      -webkit-tap-highlight-color:transparent
+    }
+    body {
+      margin:0;
+      line-height:inherit
+    }
+    html {
+      font-family:Merchant,ui-sans-serif,system-ui,sans-serif,"Apple Color Emoji","Segoe UI Emoji",Segoe UI Symbol,"Noto Color Emoji";
+      font-weight:300
+    }
+    *,:before,:after{
+      --tw-border-spacing-x:0;
+      --tw-border-spacing-y:0;
+      --tw-translate-x:0;
+      --tw-translate-y:0;
+      --tw-rotate:0;
+      --tw-skew-x:0;
+      --tw-skew-y:0;
+      --tw-scale-x:1;
+      --tw-scale-y:1;
+      --tw-pan-x: ;
+      --tw-pan-y: ;
+      --tw-pinch-zoom: ;
+      --tw-scroll-snap-strictness:proximity;
+      --tw-gradient-from-position: ;
+      --tw-gradient-via-position: ;
+      --tw-gradient-to-position: ;
+      --tw-ordinal: ;
+      --tw-slashed-zero: ;
+      --tw-numeric-figure: ;
+      --tw-numeric-spacing: ;
+      --tw-numeric-fraction: ;
+      --tw-ring-inset: ;
+      --tw-ring-offset-width:0px;
+      --tw-ring-offset-color:#fff;
+      --tw-ring-color:rgb(59 130 246 / .5);
+      --tw-ring-offset-shadow:0 0 #0000;
+      --tw-ring-shadow:0 0 #0000;
+      --tw-shadow:0 0 #0000;
+      --tw-shadow-colored:0 0 #0000;
+      --tw-blur: ;
+      --tw-brightness: ;
+      --tw-contrast: ;
+      --tw-grayscale: ;
+      --tw-hue-rotate: ;
+      --tw-invert: ;
+      --tw-saturate: ;
+      --tw-sepia: ;
+      --tw-drop-shadow: ;
+      --tw-backdrop-blur: ;
+      --tw-backdrop-brightness: ;
+      --tw-backdrop-contrast: ;
+      --tw-backdrop-grayscale: ;
+      --tw-backdrop-hue-rotate: ;
+      --tw-backdrop-invert: ;
+      --tw-backdrop-opacity: ;
+      --tw-backdrop-saturate: ;
+      --tw-backdrop-sepia: ;
+      --tw-contain-size: ;
+      --tw-contain-layout: ;
+      --tw-contain-paint: ;
+      --tw-contain-style: 
+    }
+    .min-w-fit{
+      min-width:-moz-fit-content;
+      min-width:fit-content
+    }
+    @font-face {
+      font-family:Merchant;
+      font-style:normal;
+      font-weight:700;
+      src:url(assets/fonts/Merchant-Bold.woff2) format("woff2"),url(assets/fonts/Merchant-Bold.woff) format("woff")
+    }
+    @font-face {
+      font-family:Merchant;
+      font-style:italic;
+      font-weight:700;
+      src:url(assets/fonts/Merchant-BoldItalic.woff2) format("woff2"),url(assets/fonts/Merchant-BoldItalic.woff) format("woff")
+    }
+    @font-face{font-family:Merchant;
+      font-style:normal;
+      font-weight:500;
+      src:url(assets/fonts/Merchant-Medium.woff2) format("woff2"),url(assets/fonts/Merchant-Medium.woff) format("woff")
+    }
+    @font-face{font-family:Merchant;
+      font-style:italic;
+      font-weight:500;
+      src:url(assets/fonts/Merchant-MediumItalic.woff2) format("woff2"),url(assets/fonts/Merchant-MediumItalic.woff) format("woff")
+    }
+    @font-face{font-family:Merchant;
+      font-style:normal;
+      font-weight:400;
+      src:url(assets/fonts/Merchant-Regular.woff2) format("woff2"),url(assets/fonts/Merchant-Regular.woff) format("woff")
+    }
+    @font-face{font-family:Merchant;
+      font-style:italic;
+      font-weight:400;
+      src:url(assets/fonts/Merchant-Italic.woff2) format("woff2"),url(assets/fonts/Merchant-Italic.woff) format("woff")
+    }
+    @font-face{font-family:Merchant;
+      font-style:normal;
+      font-weight:300;
+      src:url(assets/fonts/Merchant-Light.woff2) format("woff2"),url(assets/fonts/Merchant-Light.woff) format("woff")
+    }
+    @font-face{font-family:Merchant;
+      font-style:italic;
+      font-weight:300;
+      src:url(assets/fonts/Merchant-LightItalic.woff2) format("woff2"),url(assets/fonts/Merchant-LightItalic.woff) format("woff")
+    }
+  </style>
+  <style>
+    nav[_ngcontent-serverApp-c27]   ul[_ngcontent-serverApp-c27]{display:grid;
+        font-size:.875rem;
+        line-height:1rem}nav[_ngcontent-serverApp-c27]   li[_ngcontent-serverApp-c27]{padding-top:1rem;
+        padding-bottom:1rem}
+  </style>
+  <style>
+    [_nghost-serverApp-c25]{--anchor-color: #2497FF;
+        --anchor-decoration: underline}
+  </style>
+  <style>
+    a[_ngcontent-serverApp-c26]{color:var(--icon-color, #FFFFFF)}.social-icon--facebook[_ngcontent-serverApp-c26]:hover, .social-icon--facebook[_ngcontent-serverApp-c26]:focus{--icon-color: #1877F2}.social-icon--youtube[_ngcontent-serverApp-c26]:hover, .social-icon--youtube[_ngcontent-serverApp-c26]:focus{--icon-color: #FF0000}.social-icon--linkedin[_ngcontent-serverApp-c26]:hover, .social-icon--linkedin[_ngcontent-serverApp-c26]:focus{--icon-color: #0077B5}.social-icon--instagram[_ngcontent-serverApp-c26]:hover, .social-icon--instagram[_ngcontent-serverApp-c26]:focus{--icon-color: #ff0076}
+  </style>
+  <style>
+    [_nghost-serverApp-c2]{display:inline-block}a[_ngcontent-serverApp-c2]:not(.inverted):not(:disabled), button[_ngcontent-serverApp-c2]:not(.inverted):not(:disabled){--tw-shadow: 0px 4px 16px rgba(31, 31, 33, .1), 0px 2px 4px rgba(31, 31, 33, .2);
+        --tw-shadow-colored: 0px 4px 16px var(--tw-shadow-color), 0px 2px 4px var(--tw-shadow-color);
+        box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000),var(--tw-ring-shadow, 0 0 #0000),var(--tw-shadow)}a[_ngcontent-serverApp-c2]:not(.inverted):not(:disabled):hover, button[_ngcontent-serverApp-c2]:not(.inverted):not(:disabled):hover{--tw-shadow: 0px 8px 32px rgba(31, 31, 33, .1), 0px 4px 8px rgba(31, 31, 33, .2);
+        --tw-shadow-colored: 0px 8px 32px var(--tw-shadow-color), 0px 4px 8px var(--tw-shadow-color);
+        box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000),var(--tw-ring-shadow, 0 0 #0000),var(--tw-shadow)}.width-full[_ngcontent-serverApp-c2]{width:100%}.a-disabled[_ngcontent-serverApp-c2]{opacity:.5;
+        --tw-brightness: brightness(1);
+        filter:var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow)}.size-small[_ngcontent-serverApp-c2]{border-radius:1rem;
+        padding:.25rem .75rem;
+        font-size:1rem;
+        line-height:1.5rem}.size-medium[_ngcontent-serverApp-c2]{border-radius:1.5rem;
+        padding:.75rem 1rem;
+        font-size:1.25rem;
+        line-height:1.5rem}.size-large[_ngcontent-serverApp-c2]{border-radius:32px;
+        padding:1rem 1.5rem;
+        font-size:1.5rem;
+        line-height:2rem}.variant-primary[_ngcontent-serverApp-c2]{--tw-bg-opacity: 1;
+        background-color:rgb(38 89 217 / var(--tw-bg-opacity));
+        --tw-text-opacity: 1;
+        color:rgb(255 255 255 / var(--tw-text-opacity))}.variant-primary.inverted[_ngcontent-serverApp-c2]{--tw-bg-opacity: 1;
+        background-color:rgb(255 224 92 / var(--tw-bg-opacity));
+        --tw-text-opacity: 1;
+        color:rgb(38 89 217 / var(--tw-text-opacity))}.variant-secondary[_ngcontent-serverApp-c2]{--tw-bg-opacity: 1;
+        background-color:rgb(255 224 92 / var(--tw-bg-opacity));
+        --tw-text-opacity: 1;
+        color:rgb(31 31 33 / var(--tw-text-opacity))}.variant-secondary.inverted[_ngcontent-serverApp-c2]{border-width:1px;
+        --tw-border-opacity: 1;
+        border-color:rgb(255 224 92 / var(--tw-border-opacity));
+        --tw-bg-opacity: 1;
+        background-color:rgb(38 89 217 / var(--tw-bg-opacity));
+        --tw-text-opacity: 1;
+        color:rgb(255 224 92 / var(--tw-text-opacity))}.variant-destructive[_ngcontent-serverApp-c2]{--tw-bg-opacity: 1;
+        background-color:rgb(255 231 216 / var(--tw-bg-opacity));
+        --tw-text-opacity: 1;
+        color:rgb(206 39 0 / var(--tw-text-opacity))}
+  </style>
+  <style>
+    [_nghost-serverApp-c3]{display:inline-block}a[_ngcontent-serverApp-c3]:not(.inverted):not(:disabled), button[_ngcontent-serverApp-c3]:not(.inverted):not(:disabled){--tw-shadow: 0px 4px 16px rgba(31, 31, 33, .1), 0px 2px 4px rgba(31, 31, 33, .2);
+        --tw-shadow-colored: 0px 4px 16px var(--tw-shadow-color), 0px 2px 4px var(--tw-shadow-color);
+        box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000),var(--tw-ring-shadow, 0 0 #0000),var(--tw-shadow)}a[_ngcontent-serverApp-c3]:not(.inverted):not(:disabled):hover, button[_ngcontent-serverApp-c3]:not(.inverted):not(:disabled):hover{--tw-shadow: 0px 8px 32px rgba(31, 31, 33, .1), 0px 4px 8px rgba(31, 31, 33, .2);
+        --tw-shadow-colored: 0px 8px 32px var(--tw-shadow-color), 0px 4px 8px var(--tw-shadow-color);
+        box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000),var(--tw-ring-shadow, 0 0 #0000),var(--tw-shadow)}.width-full[_ngcontent-serverApp-c3]{width:100%}.a-disabled[_ngcontent-serverApp-c3]{opacity:.5;
+        --tw-brightness: brightness(1);
+        filter:var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow)}.size-small[_ngcontent-serverApp-c3]{border-radius:1rem;
+        padding:.25rem .75rem;
+        font-size:1rem;
+        line-height:1.5rem}.size-medium[_ngcontent-serverApp-c3]{border-radius:1.5rem;
+        padding:.75rem 1rem;
+        font-size:1.25rem;
+        line-height:1.5rem}.size-large[_ngcontent-serverApp-c3]{border-radius:32px;
+        padding:1rem 1.5rem;
+        font-size:1.5rem;
+        line-height:2rem}.variant-primary[_ngcontent-serverApp-c3]{--tw-bg-opacity: 1;
+        background-color:rgb(38 89 217 / var(--tw-bg-opacity));
+        --tw-text-opacity: 1;
+        color:rgb(255 255 255 / var(--tw-text-opacity))}.variant-primary.inverted[_ngcontent-serverApp-c3]{--tw-bg-opacity: 1;
+        background-color:rgb(255 224 92 / var(--tw-bg-opacity));
+        --tw-text-opacity: 1;
+        color:rgb(38 89 217 / var(--tw-text-opacity))}.variant-secondary[_ngcontent-serverApp-c3]{--tw-bg-opacity: 1;
+        background-color:rgb(255 224 92 / var(--tw-bg-opacity));
+        --tw-text-opacity: 1;
+        color:rgb(31 31 33 / var(--tw-text-opacity))}.variant-secondary.inverted[_ngcontent-serverApp-c3]{border-width:1px;
+        --tw-border-opacity: 1;
+        border-color:rgb(255 224 92 / var(--tw-border-opacity));
+        --tw-bg-opacity: 1;
+        background-color:rgb(38 89 217 / var(--tw-bg-opacity));
+        --tw-text-opacity: 1;
+        color:rgb(255 224 92 / var(--tw-text-opacity))}.variant-destructive[_ngcontent-serverApp-c3]{--tw-bg-opacity: 1;
+        background-color:rgb(255 231 216 / var(--tw-bg-opacity));
+        --tw-text-opacity: 1;
+        color:rgb(206 39 0 / var(--tw-text-opacity))}
+  </style>
+  <style>
+    [_nghost-serverApp-c37]   .background-svg[_ngcontent-serverApp-c37]{background-size:100% 100%}
+  </style>
+  <style>
+    [_nghost-serverApp-c12]{display:block}
+  </style>
+  <style>
+    [_nghost-serverApp-c24]{display:block}[_nghost-serverApp-c24]   .footer-target[_ngcontent-serverApp-c24]:target{border-radius:.25rem;
+        outline-style:solid;
+        outline-width:1px;
+        outline-offset:8px}[_nghost-serverApp-c24]     p:not(:last-child){margin-bottom:1rem}
+  </style>
   <style>
     .button-container {
       position: fixed;
@@ -27,235 +259,162 @@
       border-radius: 0.75rem;
     }
   </style>
+  <!-- <script src="assets/js/runtime.js"></script> -->
+  <script src="assets/js/polyfills.js"></script>
+  <script src="assets/js/main.js"></script>
 </head>
-<body>
-  <div class="skip-nav">
-    <a href="#maincontent" class="link-modal">Skip to main content</a>
-  </div>
-  
-  <nav aria-label="primary-navigation" class="navbar navbar-fixed-top flex-container-md vertically-centered" role="navigation">
-    <div class="container" id="nav-container">
-      <div class="navbar-header">
-        <button aria-controls="navbar" aria-expanded="false" class="navbar-toggle collapsed" data-target="#navbar" data-toggle="collapse" id="menu-button" type="button">
-          <span class="fa fa-bars"></span><span class="menu-text">Menu</span>
-        </button>
-        <a class="log-in visible-xs-block visible-sm-block link-modal" href="/log-in">Log In</a>
-        <a class="navbar-brand link-modal" href="/" title="Link to OneMain Financial Homepage"><img alt="OneMain Lending Done Human" class="logo-stacked" src="https://cdn.onemain.co/assets/logo-stacked-82fb1460a8cd2b907f7b0792056a237060cd9967baa2802bc3e556ac6083abf8.svg"></a>
-      </div>
-      
-      <div class="navbar-collapse collapse" id="navbar">
-        <ul class="nav navbar-nav">
-          <li class="visible-xs-block visible-sm-block">
-            <a href="/prequalification" class="link-modal">Check for Offers</a>
-          </li>
-          <li class="visible-xs-block visible-sm-block border-bottom">
-            <a class="landable-event link-modal" data-event-name="header_direct_mail_link" href="/offer">RESPOND TO MAILED OFFER</a>
-          </li>
-          <li class="active">
-            <a href="/personal-loans" class="link-modal">Personal Loans</a>
-          </li>
-          <li>
-            <a href="/credit-cards" class="link-modal">Credit Cards</a>
-          </li>
-          <li>
-            <a href="/why-us" class="link-modal">Why Us</a>
-          </li>
-          <li class="visible-md"><a href="/branches" class="link-modal">Branches</a></li>
-          <li class="visible-xs-block visible-sm-block visible-lg"><a href="/branches" class="link-modal">Branch Search</a></li>
-          <li class="visible-xs-block visible-sm-block visible-lg"><a href="/resources" class="link-modal">Resources</a></li></ul><ul class="nav navbar-nav right"><li class="hidden-xs hidden-sm"><a href="/log-in" class="link-modal">Log In</a></li>
-          <li class="nav-cta hidden-xs hidden-sm"><a class="header-apply-now link-modal" href="/prequalification">Check for Offers</a></li>
-        </ul>
-      </div>
-    </div>
-  </nav>
-  
-  <div class="container flash-container">
-    <script id="flash-template" type="text/html">
-      <div class="flash closable {{status}}">{{message}} 
-        <button class="flash-close om om-close"></button>
-      </div>
-    </script>
-  </div>
-  
-  <div class="target" id="maincontent" role="main">
-    <div class="personal-loans hero-image text-center">
-      <div class="hero-bg"></div>
-      <div class="hero-wrapper">
-        <div class="hero-header">
-          <div class="container">
-            <h1 class="heading-small text-uppercase"><span class="block-xs">PERSONAL LOANS</span> </h1><h2 class="heading-medium"><span class="block-el">Personal loans for what you need—</span><span class="block-el">and when you need them.</span></h2>
+
+<body class="min-w-fit">
+  <omf-root ng-version="15.2.10" ng-server-context="ssr">
+    <div class="flex flex-col h-screen xs:min-w-min">
+      <omf-header>
+        <header aria-label="mobile header" class="xl:hidden relative omf-mobile ng-star-inserted">
+          <div class="bg-omf-white text-omf-sky w-full focus-within:pt-3 focus-within:pl-3">
+            <a id="SkipContentButtonMobile" fragment="mainContent" class="h-0 w-0 block focus:p-2 overflow-hidden underline focus:h-auto focus:w-auto focus:inline-block" href="/#mainContent" tabindex="-1">Skip to main content</a>
+            <a fragment="footerContent" class="h-0 w-0 block focus:p-2 overflow-hidden underline focus:h-auto focus:w-auto focus:inline-block" href="/#footerContent">Skip to footer</a>
           </div>
-        </div>
-        <div class="hero-content"><div class="container"><p class="medium-weight">Let us help you take the next step with a personal or auto loan</p><p class="medium-weight">from $1,500 - $20,000.<sup>1</sup></p><a class="btn btn-primary mobile-btn-full spaced link-modal" href="/prequalification">Check for Offers</a><p>This won’t affect your credit score.</p></div>
-        </div>
-      </div>
-        </div>
-        <div class="container text-center"><div class="row spaced-3x"><div class="col-sm-8 center-block"><p>A personal loan from OneMain can help you take control of your finances. From debt consolidation to home improvements to vacations, you can plan for both the expected and unexpected.</p></div>
-        </div>
-      </div>
-      <div class="card padding-2x spaced-4x primary-bg"><div class="container text-center"><h2 class="new-heading-3 spaced">Why get a personal loan from OneMain Financial?</h2><div class="row spaced-3x"><div class="col-sm-8 center-block"><p>Personal loans are <a href="/resources/loan-basics/what-is-an-installment-loan" class="link-modal">installment loans</a> with fixed interest rates that you can use for a variety of reasons.<sup>2</sup> If approved, you’ll borrow a set amount of money and pay it off with monthly payments over a scheduled period of time. Personal loans can offer an alternative to credit cards by giving you a predictable and fixed repayment plan. They can even be a tool for <a href="/resources/credit/how-a-personal-loan-could-help-build-credit" class="link-modal">building credit</a> if you make your payments on time. </p><p>At OneMain, we’ve been a trusted loan company for over 100 years. You can apply for our simple and convenient personal loans online, or talk to one of our loan specialists over the phone or at your local branch.</p></div>
-        </div>
-      </div>
-        </div>
-        <div class="card padding-2x spaced-4x white"><div class="container text-center"><h3 class="new-heading-3 spaced-2x">Common uses for a personal loan.<sup>2</sup></h3><div class="row"><div class="col-lg-10 center-block"><div class="row"><div class="col-md-20 col-sm-4"><div class="svg-icon-list"><img alt="Piggy Bank" src="https://cdn.onemain.co/assets/icons/piggy-89056a3e342c5ab8813092a1d494a5e4ac4f4ce4c2aca64b4b40b592f2caa32a.svg"><h3 class="heading">Debt Consolidation<sup>3</sup></h3><ul><li><a href="/personal-loans/debt-consolidation" class="link-modal">Debt Consolidation Loans</a></li></ul></div>
-        </div>
-        <div class="col-md-20 col-sm-4"><div class="svg-icon-list"><img alt="Two People" src="https://cdn.onemain.co/assets/icons/people-2e9f90b327655fe384cabce17e1ffb32c74841403c20a2b654978e88f973a6ac.svg"><h3 class="heading">Life Events</h3><ul><li><a href="/personal-loans/wedding" class="link-modal">Wedding Loans</a></li>
-            <li><a href="/personal-loans/medical" class="link-modal">Medical Loans</a></li>
-            <li><a href="/personal-loans/funeral" class="link-modal">Funeral Loans</a></li>
-            <li><a href="/personal-loans/emergency" class="link-modal">Emergency Loans</a></li>
-            <li><a href="/personal-loans/moving" class="link-modal">Moving Loans</a></li></ul></div>
-          </div>
-          <div class="col-md-20 col-sm-4"><div class="svg-icon-list"><img alt="Boat" src="https://cdn.onemain.co/assets/icons/boat-e590e690e82a76839a2e1a6d4464dedea0530e7861b102e702ddeafd6221e6ce.svg"><h3 class="heading">Recreation</h3><ul><li><a href="/personal-loans/vacation" class="link-modal">Vacation Loans</a></li>
-            <li><a href="/personal-loans/boat" class="link-modal">Boat Loans</a></li>
-            <li><a href="/personal-loans/motorcycle" class="link-modal">Motorcycle Loans</a></li>
-            <li><a href="/personal-loans/rv" class="link-modal">RV Loans</a></li></ul></div>
-          </div>
-          <div class="col-md-20 col-sm-4 col-sm-offset-2 col-md-offset-0"><div class="svg-icon-list"><img alt="Car" src="https://cdn.onemain.co/assets/icons/car-07a7a0716376cf5bbab11664d3c203d40896393fd0d3d8cf17100b8e8c89282b.svg"><h3 class="heading">Auto Loans</h3><ul><li><a href="/personal-loans/auto-refinance" class="link-modal">Auto Refinance Loans</a></li>
-            <li><a href="/personal-loans/auto-repair" class="link-modal">Auto Repair Loans</a></li>
-            <li><a href="/personal-loans/car-purchase" class="link-modal">Car Purchase Loans</a></li>
-            <li><a href="/personal-loans/cash-out-refinance" class="link-modal">Cash Out Refinance</a></li></ul></div>
-          </div>
-          <div class="col-md-20 col-sm-4"><div class="svg-icon-list"><img alt="Home" src="https://cdn.onemain.co/assets/icons/home-f8175c3d346fbde719b58ec0b9431073766c41af741d37682d54cc688e367aab.svg"><h3 class="heading">Home Projects</h3><ul><li><a href="/personal-loans/home-improvement" class="link-modal">Home Improvement</a></li></ul></div>
-          </div>
-        </div>
-          </div>
-        </div>
-          </div>
-        </div>
-        <div class="card padding-2x spaced-4x primary-bg"><div class="container how-it-works"><h2 class="spaced-2x text-center">How it works</h2><div class="row"><div class="col-md-12 center-block"><div class="row cards" role="list"><div class="col-md-4"><div class="card design-system-card elevation-1 ordered-heading"><span aria-label="Step 1" class="ordinal spaced" role="listitem">1</span><h3 class="heading text-uppercase text-center">Apply Online</h3><p>Once we have some financial, employment and personal info, you’ll get a quick response on your loan request.</p></div>
-          </div>
-          <div class="col-md-4"><div class="card design-system-card elevation-1 ordered-heading"><span aria-label="Step 2" class="ordinal spaced" role="listitem">2</span><h3 class="heading text-uppercase text-center">Connect with a Loan Specialist</h3><p>Upon approval, we’ll discuss your options and verify things like identity, income, expenses and any needed collateral on the phone, online or at a branch.</p></div>
-          </div>
-          <div class="col-md-4"><div class="card design-system-card elevation-1 ordered-heading"><span aria-label="Step 3" class="ordinal spaced" role="listitem">3</span><h3 class="heading text-uppercase text-center">Sign and Get Your Money</h3><p>After you review and accept your loan, you’ll sign loan documents and receive the money. It’s that easy.</p></div>
-          </div>
-        </div>
-          </div>
-        </div>
-          </div>
-        </div>
-        <div class="card padding-2x spaced-4x"><div class="container text-center"><h2 class="new-heading-3 spaced-2x">Say you’re approved for a personal loan, now what?</h2><div class="row"><div class="col-sm-10 col-md-8 center-block"><p class="spaced-2x">You may be offered a <a href="/resources/loan-basics/whats-the-difference-between-a-secured-and-unsecured-loan" class="link-modal">secured or unsecured</a> loan. A secured loan requires you to provide collateral, such as a motor vehicle, while an unsecured loan doesn’t require any collateral at all. </p><h3 class="heading-4 spaced">Our rates and terms<sup>1</sup></h3><table class="simple-rate-table"><tbody><tr><td><div class="larger medium">$1,500 - $20,000</div>
-          <div class="smaller">Loan Amount Range</div></td><td><div class="larger medium">18.00% - 35.99%</div>
-          <div class="smaller">APR Range</div></td><td><div class="larger medium">24, 36, 48 or 60 Months</div>
-          <div class="smaller">Term Lengths</div></td></tr></tbody></table><p>Your terms vary based on personal information like credit history, income, expenses, debts and available collateral. As an example, if you borrowed $6,000 with a 24.99% APR and 60 month term, your payments would be $176.07 per month. This example is based on an average customer with good credit.</p><p>Get an idea of estimated monthly payments for different loan amounts with our <a href="/resources/financial-calculators/personal-loan" class="link-modal">personal loan calculator</a> <sup>3</sup> </p><div class="smaller center-text"><p>Important information about our <a href="/legal/loan-fees" target="_blank" class="link-modal">Loan Amounts and Fees</a></p></div>
-          </div>
-        </div>
-          </div>
-        </div>
-        <div class="card padding-4x spaced-4x primary-bg"><div class="container text-center"><h2 class="new-heading-3 spaced">Ready to get started? It’s easy.</h2><div class="row"><div class="col-lg-4 col-md-6 col-sm-8 center-block"><div class="row"><div class="col-sm-6 spaced"><a class="btn btn-primary btn-full spaced link-modal" href="/prequalification">Check for Offers</a><p class="xxs">This won’t affect your credit score.</p></div>
-        <div class="col-sm-6 spaced"><a class="btn btn-secondary btn-full link-modal" href="/branches">Find a Branch</a></div>
-          </div>
-        </div>
-          </div>
-        </div>
-          </div>
-          <div class="container text-center"><div class="trustpilot-widget" data-businessunit-id="56df50840000ff000589f1a3" data-locale="en-US" data-schema-type="Organization" data-stars="4,5" data-style-height="350px" data-style-width="100%" data-tags="SafeName" data-template-id="539ad0ffdec7e10e686debd7" data-theme="light" style="position: relative;"><iframe title="Customer reviews powered by Trustpilot" loading="auto" src="https://widget.trustpilot.com/trustboxes/539ad0ffdec7e10e686debd7/index.html?businessunitId=56df50840000ff000589f1a3&amp;templateId=539ad0ffdec7e10e686debd7#locale=en-US&amp;schemaType=Organization&amp;stars=4%2C5&amp;styleHeight=350px&amp;styleWidth=100%25&amp;tags=SafeName&amp;theme=light" style="position: relative; height: 350px; width: 100%; border-style: none; display: block; overflow: hidden;"></iframe></div><a href="https://www.trustpilot.com/review/onemainfinancial.com" rel="noopener" target="_blank" class="link-modal">Trustpilot</a><div class="disclaimer text-center"><p>These customer testimonials reflect individuals' personal experiences, so you may not have the same results </p></div><script async="" class="optanon-category-C0004" id="onetrust-trustpilot" src="//widget.trustpilot.com/bootstrap/v5/tp.widget.bootstrap.min.js" type="text/javascript"></script></div>
-          <div class="container"><h2 class="new-heading-3 spaced-2x">Frequently asked questions about personal loans</h2><div class="panel-group accordion spaced-2x" id="accordion"><div class="panel panel-default"><div class="panel-heading"><div class="accordion-caret"><h3 class="panel-title primary"><a class="accordion-toggle collapsed link-modal" data-parent="#accordion" data-toggle="collapse" href="#how-do-i-qualify-for-a-personal-loan">How do I qualify for a personal loan?</a></h3></div>
-          </div>
-          <div class="panel-collapse collapse collapsed accordian-body" id="how-do-i-qualify-for-a-personal-loan"><div class="panel-body"><p>There are many factors that determine your eligibility for a personal loan, such as:</p><ul><li>Financial history</li>
-            <li>Credit history</li>
-            <li>Income and expenses</li>
-            <li>Loan purpose</li>
-            <li>Whether you have filed for bankruptcy</li>
-            <li>State of residence</li></ul><p>For more information, please call <strong><a class="tel link-modal" href="tel:8009615577">(800) 961-5577</a> </strong>or <a href="/branches" class="link-modal">find a branch.</a></p></div>
-          </div>
-        </div>
-        <div class="panel panel-default"><div class="panel-heading"><div class="accordion-caret"><h3 class="panel-title primary"><a class="accordion-toggle collapsed link-modal" data-parent="#accordion" data-toggle="collapse" href="#what-do-i-need-to-apply-for-a-personal-loan">What do I need to apply for a personal loan?</a></h3></div>
-          </div>
-          <div class="panel-collapse collapse collapsed accordian-body" id="what-do-i-need-to-apply-for-a-personal-loan"><div class="panel-body"><p>Before you close your loan, OneMain will need you to provide the following documents:</p><ul><li>A copy of a valid, government-issued ID (e.g. driver’s license or passport)</li>
-            <li>Your Social Security card</li>
-            <li>Proof of residence (e.g. a driver’s license with your current address, a utility bill, or a signed lease)</li>
-            <li>Proof of income (e.g. pay stubs or tax returns)</li></ul><p>We may ask for additional items based upon your unique situation. Ready to apply? Start your <a href="/apply" class="link-modal">loan application</a> today. </p></div>
-          </div>
-        </div>
-        <div class="panel panel-default"><div class="panel-heading"><div class="accordion-caret"><h3 class="panel-title primary"><a class="accordion-toggle collapsed link-modal" data-parent="#accordion" data-toggle="collapse" href="#how-long-does-it-take-to-apply-for-and-receive-a-loan">How long does it take to apply for and receive a loan?</a></h3></div>
-          </div>
-          <div class="panel-collapse collapse collapsed accordian-body" id="how-long-does-it-take-to-apply-for-and-receive-a-loan"><div class="panel-body"><p>On average, from the start of the application to the receiving of funds, the process takes about one day. The amount of time may vary, however, based on what time you submit your application, the number of documents required in order to approve your application, and how long it takes to receive those documents, among other factors.</p><p>Average lengths of time for the online application process (may vary depending on your circumstances):</p><ul><li><strong>Completing the application and receiving a decision:</strong> Less than 10 minutes* </li>
-            <li><strong>Signing the agreements and receiving funds:</strong> By the next business day after approval </li></ul><p>* May take longer depending upon the amount of time required for the verification process.</p><p>Ready to apply? Get your <a href="/apply" class="link-modal">loan application</a> started today. </p></div>
-          </div>
-        </div>
-        <div class="panel panel-default"><div class="panel-heading"><div class="accordion-caret"><h3 class="panel-title primary"><a class="accordion-toggle collapsed link-modal" data-parent="#accordion" data-toggle="collapse" href="#how-does-a-precomputed-loan-work">How does a precomputed loan work?</a></h3></div>
-          </div>
-          <div class="panel-collapse collapse collapsed accordian-body" id="how-does-a-precomputed-loan-work"><div class="panel-body"><p>Precomputed loans calculate the total interest up front when you open your loan. This interest is included in your starting account balance and does not change over the loan term.</p><ul><li>Every time you make a monthly payment on time, the whole amount of each payment goes toward reducing that account balance.</li>
-            <li>If you make all your payments on time, your account balance will be $0 at the end of the term.</li>
-            <li>If you miss a payment or pay late, your lender may charge you late fees, and your credit report may show missed or late payments.</li>
-            <li>You may be entitled to an interest refund or rebate if you pay your loan off early.</li></ul><p>Find detailed information and examples on our blog, <a href="/resources/loan-basics/understanding-how-a-precomputed-loan-works" class="link-modal">Understanding How a Precomputed Loan Works</a>. </p></div>
-          </div>
-        </div>
-        <div class="panel panel-default"><div class="panel-heading"><div class="accordion-caret"><h3 class="panel-title primary"><a class="accordion-toggle collapsed link-modal" data-parent="#accordion" data-toggle="collapse" href="#how-does-a-daily-simple-interest-loan-work">How does a daily simple interest loan work?</a></h3></div>
-          </div>
-          <div class="panel-collapse collapse collapsed accordian-body" id="how-does-a-daily-simple-interest-loan-work"><div class="panel-body"><p>Interest on a daily simple interest loan is calculated by using the daily simple interest method. This means that interest accrues on a daily basis on the amount of the loan (current outstanding principal balance) from the date the interest charges begin until you repay the loan. The daily simple interest method counts the number of days between the date your last payment is received and the date your current payment is received.  To avoid paying additional interest, you should regularly and consistently make your standard monthly payment amount on or before your payment due date.</p><p>For more information, here's an overview of <a href="/resources/loan-basics/how-daily-simple-interest-works" target="_blank" class="link-modal">how daily simple interest works</a>. Included is the calculation used to determine the interest on a daily simple interest loan and various examples to illustrate how different payment patterns can affect unpaid accrued interest. </p></div>
-          </div>
-        </div>
-          </div><p><span class="medium">Still have questions?</span> <a href="/faq" class="link-modal">Check out our FAQs.</a></p></div>
-          </div>
-          <div class="footer" role="contentinfo"><nav aria-label="primary-footer-navigation" class="main-footer"><div class="container"><ul><li><a href="/about-us" class="link-modal">About Us</a></li>
-            <li><a href="/contact-us" class="link-modal">Contact Us</a></li>
-            <li><a href="/legal" class="link-modal">Legal &amp; Privacy</a></li>
-            <li class="visible-md"><a href="/resources" class="link-modal">Resources</a></li>
-            <li><a href="/legal/disclosures" class="link-modal">Disclosures</a></li>
-            <li><a class="exempt" href="http://investor.onemainfinancial.com">Investor Relations</a></li>
-            <li><a href="/reviews" class="link-modal">OneMain Reviews</a></li>
-            <li><a class="exempt" href="https://jobs.onemainfinancial.com">Careers</a></li>
-            <li><a href="/legal/loan-fees" class="link-modal">Loan Amounts &amp; Fees</a></li>
-            <li class="double-width"><a class="onetrust exempt" href="#do-not-sell-share" onclick="OneTrust.ToggleInfoDisplay(); return false;">Do Not Sell or Share My Personal Information</a></li></ul></div></nav><nav aria-label="secondary-footer-navigation" class="additional-footer"><div class="container"><ul><li><a href="/affiliates" class="link-modal">Affiliates</a></li>
-            <li><a href="/faq" class="link-modal">FAQ</a></li>
-            <li><a href="https://www.onemainsolutions.com" class="link-modal">Insurance</a></li>
-            <li><a href="/merchants" class="link-modal">Merchant Referral Program</a></li>
-            <li><a href="/military-benefits" class="link-modal">Military Family Support</a></li>
-            <li><a href="/mortgage-payment-solutions" class="link-modal">Mortgage Payment Solutions</a></li>
-            <li><a href="/credit-bureau" class="link-modal">Credit Bureau Information</a></li>
-            <li><a href="/accessibility-statement" class="link-modal">Accessibility Statement</a></li>
-            <li><a href="/mobile-app" class="link-modal">Mobile App</a></li></ul></div></nav><div class="marketing"><div class="container"><p class="spaced small"><strong>OneMain Holdings, Inc.</strong><span class="block-el">601 N.W. Second Street </span><span class="block-el">Evansville, IN 47708-1013 </span></p></div>
-            <div class="container"><div class="copyright">Copyright © 1996-2023, All rights reserved. </div><ul class="social-links"><li><a href="https://www.facebook.com/OneMain" rel="noopener" target="_blank" title="OneMain Financial at Facebook" class="link-modal"><img alt="Facebook" src="https://cdn.onemain.co/assets/icons/facebook-footer-c924621965c3605f361fb7a49d04583641bf2455476f930487e132a78d564df7.svg"></a></li>
-            <li><a href="https://twitter.com/onemain" rel="noopener" target="_blank" title="OneMain Financial at Twitter" class="link-modal"><img alt="Twitter" src="https://cdn.onemain.co/assets/icons/twitter-footer-1f18bb03effd785e9ae6f7a60ce7d6f55222c65155d0d967ae72940bb45cda13.svg"></a></li>
-            <li class="spaced"><a href="https://instagram.com/onemain/" rel="noopener" target="_blank" title="OneMain Financial at Instagram" class="link-modal"><img alt="Instagram" src="https://cdn.onemain.co/assets/icons/instagram-footer-d6219ca798cefa5744c240fe723e6095a6fe02d9bfd47b9d8a8f1aee46b55fa1.svg"></a></li>
-            <li class="spaced"><a href="https://www.youtube.com/c/onemain" rel="noopener" target="_blank" title="OneMain Financial at YouTube" class="link-modal"><img alt="YouTube" src="https://cdn.onemain.co/assets/icons/youtube-footer-63c30dcfa119ada94ca42afdb4bbb1dd392aea3aa2b6cc34eeb604fbb4347c4f.svg"></a></li>
-            <li class="spaced"><a href="https://www.linkedin.com/company/7932726?trk=tyah&amp;trkInfo=clickedVertical%3Acompany%2CclickedEntityId%3A7932726%2Cidx%3A2-1-2%2CtarId%3A1472224846359%2Ctas%3AOneMain" rel="noopener" target="_blank" title="OneMain Financial at LinkedIn" class="link-modal"><img alt="LinkedIn" src="https://cdn.onemain.co/assets/icons/linkedin-footer-c06c815d74611bb1c1ce7629c74db9b2cb6c1701242e43376d1249482ff11c59.svg"></a></li></ul></div>
-          </div>
-          <div class="container"><div class="legal spaced-2x"><div class="row"><div class="col-md-10 col-md-offset-1" id="disclaimer"><p><sup>1</sup> Not all applicants will qualify for larger loan amounts or most favorable loan terms. Larger loan amounts require a first lien on a motor vehicle no more than ten years old, that meets our value requirements, titled in your name with valid insurance. Loan approval and actual loan terms depend on your state of residence and your ability to meet our credit standards (including a responsible credit history, sufficient income after monthly expenses, and availability of collateral). APRs are generally higher on loans not secured by a vehicle. Highly-qualified applicants may be offered higher loan amounts and/or lower APRs than those shown above.  Active duty military, their spouse or dependents covered by the Military Lending Act may not pledge any vehicle as collateral. </p><p>Borrowers in these states are subject to these minimum loan sizes: <strong>Alabama:</strong>  $2,100. <strong>California:</strong> $3,000. <strong>Georgia:</strong> $3,100. <strong>North Dakota:</strong> $2,000. <strong>Ohio:</strong> $2,000. <strong>Virginia:</strong> $2,600. </p><p>Borrowers in these states are subject to these maximum loan sizes: <strong>North Carolina:</strong> $9,000 for unsecured loans to all customers; $9,000 for secured loans to present customers. <strong>Maine:</strong> $7,000. <strong>Mississippi:</strong> $15,000. <strong>West Virginia:</strong> $14,000. Loans to purchase a motor vehicle or powersports equipment from select Maine, Mississippi, and North Carolina dealerships are not subject to these maximum loan sizes. </p><p><sup>2</sup> OneMain loan proceeds cannot be used for postsecondary educational expenses as defined by the CFPB’s Regulation Z such as college, university, or vocational expenses; for any business or commercial purpose; to purchase securities; or for gambling or illegal activities. </p><p><sup>3</sup> <strong>Important Notice About Refinancing or Debt Consolidation:</strong>  Refinancing or consolidating your current debt may result in higher total finance charges if the interest rate is higher or the loan term is longer. You should also carefully consider the impact of increasing your debt, monthly obligations, and length of your repayment term. OneMain loans include origination fees, which may reduce the amount of additional money that you receive or that is available to pay off existing debts. Visit <a href="/legal/loan-fees" class="link-modal">omf.com/legal/loan-fees</a> for more details. </p><p class="text-justify"><span class="bold">State Licenses:</span> OneMain Financial Group, LLC (NMLS# 1339418) – CA: Loans made or arranged pursuant to Department of Financial Protection and Innovation California Finance Lenders License. PA: Licensed by the Pennsylvania Department of Banking and Securities.  VA: Licensed by the Virginia State Corporation Commission - License Number CFI-156. OneMain Mortgage Services, Inc. (NMLS# 931153) – NY: Registered New York Mortgage Loan Servicer. Additional licensing information available on <a href="/legal/disclosures" class="link-modal">OneMain Disclosures.</a> </p><p class="text-justify">For residents of the State of Washington only: OneMain Financial Group, LLC – Consumer Loan Company License – NMLS # 1339418. <a aria-label="NMLS Consumer Access Database" href="https://nmlsconsumeraccess.org/" class="link-modal">Click here</a> for the NMLS Consumer Access Database. </p><p class="text-justify">For Housing Counselors in the State of Washington, please email us at the following link in regards to your customers loan modification status: <a href="mailto:REModifications@onemainfinancial.com" class="link-modal">REModifications@onemainfinancial.com</a>. Please ensure your customer has provided us with authorization to work with you. </p><p></p>If you are using a screen reader and are having problems using the website please call <a class="tel link-modal" href="tel:8002907002">800-290-7002</a> for assistance. </div>
-          </div>
-        </div>
-          </div>
-          <div class="container screen-share-container"><button class="btn btn-secondary screen-share-btn display-cobrowsing" data-cobrowsing="{&quot;email&quot;: &quot;&quot;, &quot;branchNumber&quot;: &quot;&quot;, &quot;applicationReferenceNumber&quot;: &quot;&quot;, &quot;applicationNumber&quot;: &quot;&quot;}" type="button"><span alt="pointer" class="fal fa-mouse-pointer"></span>SCREEN SHARE </button></div><noscript><img alt="" src="/events/noscript?keyword=noscript"></noscript><!--[if (gt IE 8)|!(IE)]><!--><!--<![endif]--></div>
-          <div class="modal fade" id="referralModal" role="dialog" tabindex="-1"><div class="modal-dialog"><div class="modal-content"><div class="modal-header"><div class="row"><div class="col-sm-4"><img alt="OneMain Lending Done Human" class="modal-logo" src="https://cdn.onemain.co/assets/logo-4f482358a08182e8ab38ad026208c5326cbdb6dcb6a5572efe7dd6794b03855b.svg"></div>
-          <div class="col-sm-8"><p class="modal-subtext light-blue">Personal and Auto Loans <span class="block-el">Since 1912</span></p></div>
-          </div>
-        </div>
-          <div class="modal-body">
-            <p>If you click “OK,” you will leave our website and will be redirected to OneMain Financial’s website. That website is not operated by us and is governed by a separate <a href="/legal/terms-of-use" class="link-modal">Terms of Use</a>, <a href="/legal/privacy-notice" class="link-modal">Privacy Notice</a> and <a href="/legal/privacy-policy" class="link-modal">Privacy Policy</a>. </p><div class="row spaced"><div class="col-sm-12"><button class="btn btn-default btn-small" data-dismiss="modal" type="button"> OK</button><a class="btn btn-link exempt" href="javascript:history.back(2)">Go Back</a></div>
+          <div class="h-[50px] bg-omf-white flex px-4">
+            <div class="flex flex-none justify-start">
+              <a routerlink="/" data-role="header-home-link-mobile" class="flex items-center cursor-pointer" href="/">
+                <img height="43px" width="111px" loading="lazy" alt="OneMain Financial logo" class="h-[43px] w-[111px]" src="assets/images/logos/onemain-vertical.svg">
+              </a>
+            </div>
+            <div class="flex flex-1 justify-end">
+              <button data-role="menu-open-button" aria-label="Open Menu" class="flex items-center gap-2 text-omf-sky focus:ring-1 focus:ring-omf-sky h-[50px] w-[70px]" data-tracked="true"><omf-icon name="menu"><svg-icon>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M21 18L3 18" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"></path><path d="M21 12L3 12" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"></path><path d="M21 6L3 6" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+                </svg-icon></omf-icon> Menu 
+              </button>
             </div>
           </div>
+        </header>
+        <header aria-label="desktop header" class="hidden xl:block omf-desktop ng-star-inserted">
+          <div class="bg-omf-white text-omf-sky w-full focus-within:pt-3 focus-within:pl-3">
+          <a id="SkipContentButton" fragment="mainContent" class="h-0 w-0 block focus:p-2 overflow-hidden underline focus:h-auto focus:w-auto focus:inline-block" href="/#mainContent">Skip to main content</a>
+          <a fragment="footerContent" class="h-0 w-0 block focus:p-2 overflow-hidden underline focus:h-auto focus:w-auto focus:inline-block" href="/#footerContent">Skip to footer</a>
         </div>
-    </div>
+        <div class="h-[63px] z-20 flex w-full px-4 absolute"><div class="flex flex-none items-center mr-8">
+          <a routerlink="/" data-role="header-home-link" class="cursor-pointer" href="/">
+            <img loading="lazy" alt="OneMain Financial Logo" src="assets/images/logos/onemain-vertical.svg"></a></div><nav role="navigation" class="flex flex-1 content-center items-center gap-4"><a omflink="" href="/personal-loans" omflandableevent="global_nav" data-role="header-personal-loans-link" class="leading-6 p-2 rounded-lg hover:bg-omf-sky-light hover:text-omf-sky whitespace-nowrap"> Personal Loans </a><a omflink="" href="https://www.onemainfinancial.com/credit-cards" omflandableevent="global_nav" data-role="header-credit-cards-link" class="leading-6 p-2 rounded-lg hover:bg-omf-sky-light hover:text-omf-sky whitespace-nowrap"> Credit Cards </a><a routerlink="/branches" omflandableevent="global_nav" data-role="header-branches-link" class="leading-6 p-2 rounded-lg hover:bg-omf-sky-light hover:text-omf-sky whitespace-nowrap" href="/branches"> Branches </a><a omflink="" href="https://www.onemainfinancial.com/resources" omflandableevent="global_nav" data-role="header-resources-link" class="leading-6 p-2 rounded-lg hover:bg-omf-sky-light hover:text-omf-sky whitespace-nowrap"> Resources </a></nav><div class="flex flex-1 items-center justify-end gap-6"><omf-anchor-button href="/prequalification" size="medium" omflandableevent="global_nav" data-role="header-check-offers-link" _nghost-serverapp-c3=""><!----><a _ngcontent-serverapp-c3="" omflink="" target="_self" data-ignore-external-link="false" class="text-center inline-block cursor-pointer ring-offset-2 outline-offset-2 focus:ring-2 focus-visible:outline focus-visible:outline-2 active:brightness-75 variant-primary size-medium width-default ring-omf-black outline-omf-black ng-star-inserted" href="https://www.onemainfinancial.com/prequalification"> Check for offers <!----></a><!----><!----></omf-anchor-button>
+            <omf-anchor-button href="/log-in" variant="secondary" size="medium" omflandableevent="global_nav" data-role="header-log-in-link" _nghost-serverapp-c3="">
+              <a _ngcontent-serverapp-c3="" omflink="" target="_self" data-ignore-external-link="false" class="text-center inline-block cursor-pointer ring-offset-2 outline-offset-2 focus:ring-2 focus-visible:outline focus-visible:outline-2 active:brightness-75 variant-secondary size-medium width-default ring-omf-black outline-omf-black ng-star-inserted" href="https://www.onemainfinancial.com/log-in">
+                <span class="flex gap-x-2 text-omf-black font-medium ng-star-inserted">
+                  <omf-icon name="user">
+                    <svg-icon>
+                      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M11.875 13.75C13.0864 13.75 14.2706 13.3908 15.2779 12.7178C16.2851 12.0447 17.0702 11.0881 17.5338 9.96894C17.9973 8.84974 18.1186 7.61821 17.8823 6.43007C17.646 5.24194 17.0626 4.15057 16.206 3.29397C15.3494 2.43738 14.2581 1.85403 13.0699 1.61769C11.8818 1.38136 10.6503 1.50265 9.53106 1.96624C8.41187 2.42983 7.45527 3.21488 6.78225 4.22213C6.10922 5.22939 5.75 6.41359 5.75 7.625C5.75 9.24945 6.39531 10.8074 7.54397 11.956C8.69263 13.1047 10.2505 13.75 11.875 13.75V13.75Z" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"></path><path d="M9.5 22.5H3.25C3.25 20.1794 4.17187 17.9538 5.81282 16.3128C7.45376 14.6719 9.67936 13.75 12 13.75C14.3206 13.75 16.5462 14.6719 18.1872 16.3128C19.8281 17.9538 20.75 20.1794 20.75 22.5H14.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+                    </svg-icon>
+                  </omf-icon> Log in 
+                </span>
+              </a>
+            </omf-anchor-button>
+</div>
+</div>
+</header>
+</omf-header>
+<main id="mainContent" role="main" class="flex-grow text-omf-black"><router-outlet></router-outlet><omf-index class="ng-star-inserted"><omf-hero _nghost-serverapp-c37=""><div _ngcontent-serverapp-c37=""><div _ngcontent-serverapp-c37="" class="relative flex w-full flex-col">
+  <img _ngcontent-serverapp-c37="" class="hidden h-full w-full object-cover lg:block" src="assets/images/home-hero-lg.webp" alt="Smiling mother holding small child on her back with view of water in the background"><img _ngcontent-serverapp-c37="" class="block h-full w-full object-cover lg:hidden" src="assets/images/home-hero.webp" alt="Smiling mother holding small child on her back with view of water in the background"><img _ngcontent-serverapp-c37="" class="absolute bottom-0 left-0 hidden w-full lg:block" src="assets/images/swoop-blue.svg" alt="Smiling mother holding small child on her back with view of water in the background"><div _ngcontent-serverapp-c37="" class="absolute hidden lg:mt-[7%] lg:block xl:mt-[11.5%] 2xl:ml-[5%] 2xl:mt-[17%]"><omf-container _ngcontent-serverapp-c37=""><div class="container mx-auto px-4 lg:px-20"><omf-hero-call-to-action _ngcontent-serverapp-c37=""><div class="grid grid-cols-4 sm:grid-cols-6 lg:grid-cols-12">
+    
+    <div class="grid col-span-4 sm:col-start-2 sm:col-span-4 lg:col-span-6 xl:col-span-5 gap-y-6 gap-x-4 lg:gap-x-6 relative lg:z-10 lg:p-6 lg:col-start-1 lg:rounded-b-4xl lg:bg-gradient-to-t lg:from-omf-white lg:to-transparent lg:after:bg-[url:var(--hero-cta-image-accent)] lg:after:absolute lg:after:block lg:after:w-[150px] lg:after:h-[150px] lg:after:bg-no-repeat lg:after:-top-[75px] lg:after:-left-[75px] lg:after:z-0" style="background-image: url('assets/images/accents/sun.svg');background-repeat: no-repeat;background-position: -20px -20px;">
+      <div class="flex flex-col gap-6">
+        <h1 class="text-4xl sm:text-[3.125rem] sm:leading-[3.375rem]"> Money today <br aria-hidden="true"> for the start of <br aria-hidden="true"><span class="font-medium md:font-bold">a new tomorrow</span></h1><p class="text-2xl">Personal &amp; auto loans that see the whole picture.</p><div><omf-anchor-button href="/prequalification" width="full" omflandableevent="promo_offer" data-role="hero-check-for-offers-link" class="mb-2 w-full" _nghost-serverapp-c3=""><!----><a _ngcontent-serverapp-c3="" omflink="" target="_self" data-ignore-external-link="false" class="text-center inline-block cursor-pointer ring-offset-2 outline-offset-2 focus:ring-2 focus-visible:outline focus-visible:outline-2 active:brightness-75 variant-primary size-medium width-full inverted ring-omf-black outline-omf-black ng-star-inserted" href="https://www.onemainfinancial.com/prequalification"><span class="font-medium ng-star-inserted">Check for offers</span><!----></a><!----><!----></omf-anchor-button><p class="text-center text-sm font-normal">This won't affect your credit score.</p></div><a omflink="" href="https://www.onemainfinancial.com/offer" omflandableevent="promo_offer" data-role="hero-offer-link" class="text-omf-sky flex gap-x-2 justify-center"><omf-icon name="envelope"><svg-icon><svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+<path d="M2 19.5V4.5H23V19.5H7" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"></path>
+<path d="M12.5 14L23 6.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"></path>
+<path d="M12.5 14L2 6.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg></svg-icon></omf-icon><span class="underline">Respond to a mailed offer</span></a><div><div class="h-[20px] border-omf-sky-light w-full"><omf-trustpilot templateid="5419b637fa0340045cd0c936" classlist="flex justify-center"><div data-role="trustpilot-widget" data-locale="en-US" data-businessunit-id="56df50840000ff000589f1a3" data-style-height="100%" data-style-width="100%" data-theme="light" data-tags="SafeName" data-review-languages="en" data-text-color="#191919" class="trustpilot-widget flex justify-center" data-template-id="5419b637fa0340045cd0c936" style="position: relative;"><iframe title="Customer reviews powered by Trustpilot" loading="auto" src="https://widget.trustpilot.com/trustboxes/5419b637fa0340045cd0c936/index.html?businessunitId=56df50840000ff000589f1a3&amp;templateId=5419b637fa0340045cd0c936#role=trustpilot-widget&amp;locale=en-US&amp;styleHeight=100%25&amp;styleWidth=100%25&amp;theme=light&amp;tags=SafeName&amp;reviewLanguages=en&amp;textColor=%23191919" style="position: relative; height: 100%; width: 100%; border-style: none; display: block; overflow: hidden;"></iframe></div></omf-trustpilot></div></div></div></div></div></omf-hero-call-to-action></div></omf-container></div><div _ngcontent-serverapp-c37="" class="bg-omf-white py-6 lg:hidden"><omf-container _ngcontent-serverapp-c37=""><div class="container mx-auto px-4 lg:px-20"><omf-hero-call-to-action _ngcontent-serverapp-c37="">
+  <div class="grid grid-cols-4 sm:grid-cols-6 lg:grid-cols-12">
+    <div class="grid col-span-4 sm:col-start-2 sm:col-span-4 lg:col-span-6 xl:col-span-5 gap-y-6 gap-x-4 lg:gap-x-6 relative lg:z-10 lg:p-6 lg:col-start-1 lg:rounded-b-4xl lg:bg-gradient-to-t lg:from-omf-white lg:to-transparent lg:after:bg-[url:var(--hero-cta-image-accent)] lg:after:absolute lg:after:block lg:after:w-[150px] lg:after:h-[150px] lg:after:bg-no-repeat lg:after:-top-[75px] lg:after:-left-[75px] lg:after:z-0" style="--hero-cta-image-accent: url('assets/images/accents/sun.svg');">
+      <div class="flex flex-col gap-6">
+        <h1 class="text-4xl sm:text-[3.125rem] sm:leading-[3.375rem]"> Money today <br aria-hidden="true"> for the start of <br aria-hidden="true"><span class="font-medium md:font-bold">a new tomorrow</span></h1>
+        <p class="text-2xl">Personal &amp; auto loans that see the whole picture.</p>
+        <div>
+          <omf-anchor-button href="/prequalification" width="full" omflandableevent="promo_offer" data-role="hero-check-for-offers-link" class="mb-2 w-full" _nghost-serverapp-c3="">
+            <a _ngcontent-serverapp-c3="" omflink="" target="_self" data-ignore-external-link="false" class="text-center inline-block cursor-pointer ring-offset-2 outline-offset-2 focus:ring-2 focus-visible:outline focus-visible:outline-2 active:brightness-75 variant-primary size-medium width-full inverted ring-omf-black outline-omf-black ng-star-inserted" href="https://www.onemainfinancial.com/prequalification">
+              <span class="font-medium ng-star-inserted">Check for offers</span>
+            </a>
+          </omf-anchor-button>
+          <p class="text-center text-sm font-normal">This won't affect your credit score.</p>
+        </div>
+        <a omflink="" href="https://www.onemainfinancial.com/offer" omflandableevent="promo_offer" data-role="hero-offer-link" class="text-omf-sky flex gap-x-2 justify-center">
+          <omf-icon name="envelope">
+            <svg-icon>
+              <svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M2 19.5V4.5H23V19.5H7" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"></path><path d="M12.5 14L23 6.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"></path><path d="M12.5 14L2 6.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+            </svg-icon>
+          </omf-icon>
+          <span class="underline">Respond to a mailed offer</span>
+        </a>
+        <div>
+          <div class="h-[20px] border-omf-sky-light w-full">
+            <omf-trustpilot templateid="5419b637fa0340045cd0c936" classlist="flex justify-center"><div data-role="trustpilot-widget" data-locale="en-US" data-businessunit-id="56df50840000ff000589f1a3" data-style-height="100%" data-style-width="100%" data-theme="light" data-tags="SafeName" data-review-languages="en" data-text-color="#191919" class="trustpilot-widget flex justify-center" data-template-id="5419b637fa0340045cd0c936" style="position: relative;"><iframe title="Customer reviews powered by Trustpilot" loading="auto" src="https://widget.trustpilot.com/trustboxes/5419b637fa0340045cd0c936/index.html?businessunitId=56df50840000ff000589f1a3&amp;templateId=5419b637fa0340045cd0c936#role=trustpilot-widget&amp;locale=en-US&amp;styleHeight=100%25&amp;styleWidth=100%25&amp;theme=light&amp;tags=SafeName&amp;reviewLanguages=en&amp;textColor=%23191919" style="position: relative; height: 100%; width: 100%; border-style: none; display: block; overflow: hidden;"></iframe></div></omf-trustpilot></div></div></div></div></div></omf-hero-call-to-action></div></omf-container></div></div><div _ngcontent-serverapp-c37="" class="bg-omf-sky py-6 text-omf-white"><omf-container _ngcontent-serverapp-c37=""><div class="container mx-auto px-4 lg:px-20"><div _ngcontent-serverapp-c37="" class="flex flex-col gap-6 md:flex-row">
+  <div _ngcontent-serverapp-c37="" class="flex flex-1 gap-x-4 md:flex-col lg:flex-row">
+    <div _ngcontent-serverapp-c37="" class="flex-none">
+      <img _ngcontent-serverapp-c37="" loading="lazy" alt="A rectangle shape with a dollar sign in the middle and lines representing movement with a clock" src="assets/images/illustrations/cash-back.svg">
   </div>
-  <div class="om-modal col-sm-6 col-md-4" id="external-link-modal">
-    <button aria-label="close button" class="close" data-dismiss="om-modal" type="button"></button>
-    <img alt="OneMain Lending Done Human" class="spaced" src="https://cdn.onemain.co/assets/logo-4f482358a08182e8ab38ad026208c5326cbdb6dcb6a5572efe7dd6794b03855b.svg">
-    <h3 class="heading-5">You are leaving OneMainFinancial.com</h3>
-    <p class="modal-text">You are about to leave the OneMain Financial website. By pressing “Open Site in New Window,” you will enter a third party’s website, which is regulated by a separate Terms of Use and Privacy Policy. Please review this third party’s Terms of Use and Privacy Policy upon entering their website.</p>
-    <a class="btn btn-small external-link exempt spaced-sx" href="#new" rel="noopener noreferrer" target="_blank">Open Site in New Window</a>
-  </div>
-      
-      
-  <div class="mouseCutout"></div>   
-  <div class="mouseProxy"></div>   
-      
-      
-  <div class="button-container">
-    <button class="blindToggle">Blind</button>
-    <button class="cataractsToggle">Cataracts</button>
-    <button class="tunnelVisionToggle">Tunnel Vision</button>
-    <button class="dyslexiaToggle">Dyslexia</button>
-    <button class="motorToggle">Motor Control</button>
-  </div>
-  <script src="https://code.jquery.com/jquery-3.7.0.min.js" crossorigin="anonymous"></script>
-  <!-- <script src="/assets/js/accessibility-barrier-overlay.js" defer></script> -->
-  <script>
-    $(document).ready(function () {
+  <div _ngcontent-serverapp-c37="" class="flex-grow">
+    <p _ngcontent-serverapp-c37="" class="font-medium text-omf-sun">Get money right when you need it</p>
+    <p _ngcontent-serverapp-c37=""> Quick decision. Money as fast as 1 hour after loan closing.<sup _ngcontent-serverapp-c37="" data-footnote="loan-qualifications"><a href="/#footnote-loan-qualifications" aria-label="1:Loan Qualification and availability Disclosures">1</a></sup></p></div></div><div _ngcontent-serverapp-c37="" class="flex flex-1 gap-x-4 md:flex-col lg:flex-row"><div _ngcontent-serverapp-c37="" class="flex-none"><img _ngcontent-serverapp-c37="" loading="lazy" alt="Two hands giving each other a high five" src="assets/images/illustrations/high-fiver.svg"></div><div _ngcontent-serverapp-c37="" class="flex-grow"><p _ngcontent-serverapp-c37="" class="font-medium text-omf-sun">We’re here for you</p><p _ngcontent-serverapp-c37="">Real people in branches, on the phone and ready to help online.</p></div></div><div _ngcontent-serverapp-c37="" class="flex flex-1 gap-x-4 md:flex-col lg:flex-row"><div _ngcontent-serverapp-c37="" class="flex-none"><img _ngcontent-serverapp-c37="" loading="lazy" alt="A piece of paper with a dollar sign and lines folded in the top left corner with a calculator on top of the paper" src="assets/images/illustrations/budgeting.svg"></div><div _ngcontent-serverapp-c37="" class="flex-grow"><p _ngcontent-serverapp-c37="" class="font-medium text-omf-sun">Loans that work for your budget</p><p _ngcontent-serverapp-c37="">Fixed payments and clear, upfront terms.</p></div></div></div></div></omf-container></div><div _ngcontent-serverapp-c37="" class="w-full"><img _ngcontent-serverapp-c37="" class="relative h-[100px] overflow-hidden w-full" src="assets/images/accents/swoop-blue-bottom.svg" alt="Smiling mother holding small child on her back with view of water in the background"></div></div></omf-hero><omf-steps class="ng-tns-c35-0 ng-star-inserted"><div class="py-10 xl:py-20 ng-tns-c35-0"><omf-container class="ng-tns-c35-0"><div class="container mx-auto px-4 lg:px-20"><div class="grid grid-cols-1 gap-y-9 xl:grid-cols-2 xl:gap-x-6"><div class="ng-tns-c35-0"><h2 class="text-4xl mb-2 ng-tns-c35-0">Clear and easy from start to finish</h2><p class="text-xl leading-6 mb-8 ng-tns-c35-0">Bring us today’s emergency, this month’s stack of bills or your next possible purchase. We welcome your goals.<sup data-footnote="loan-uses" class="ng-tns-c35-0"><a href="/#footnote-loan-uses" aria-label="2:Loan proceeds disclosure">2</a></sup></p><omf-h-rule class="text-omf-sky-light w-[144px] mb-8" _nghost-serverapp-c12=""><div _ngcontent-serverapp-c12="" class="flex gap-x-1"><!----><div _ngcontent-serverapp-c12="" class="grow"><svg _ngcontent-serverApp-c12="" aria-hidden="true" focusable="false" width="100%" height="3" fill="none" xmlns="http://www.w3.org/2000/svg"><rect _ngcontent-serverApp-c12="" width="100%" height="3" rx="1.5" fill="currentColor"></rect></svg></div><div _ngcontent-serverapp-c12=""><div _ngcontent-serverapp-c12="" class="ng-star-inserted"><svg _ngcontent-serverApp-c12="" aria-hidden="true" focusable="false" width="22" height="3" viewBox="0 0 22 3" fill="none" xmlns="http://www.w3.org/2000/svg"><rect _ngcontent-serverApp-c12="" width="12" height="3" rx="1.5" fill="currentColor"></rect><rect _ngcontent-serverApp-c12="" x="16" width="6" height="3" rx="1.5" fill="currentColor"></rect></svg></div><!----></div></div></omf-h-rule><ol class="list-none ng-tns-c35-0"><li class="ng-tns-c35-0 mb-3 cursor-pointer ng-star-inserted" data-role="step-0-button"><button class="ng-tns-c35-0" aria-label="1. Check offers, apply and have a response in minutes." data-tracked="true"><span aria-hidden="true" class="ng-tns-c35-0 mr-3 rounded-full ring-omf-sun inline-flex w-7 h-7 justify-center items-center ring-1"> 1 </span> Check offers, apply and have a response in minutes. </button></li><li class="ng-tns-c35-0 mb-3 cursor-pointer ng-star-inserted font-medium" data-role="step-1-button"><button class="ng-tns-c35-0" aria-label="2. Affordable options once we verify info." data-tracked="true"><span aria-hidden="true" class="ng-tns-c35-0 mr-3 rounded-full ring-omf-sun inline-flex w-7 h-7 justify-center items-center bg-omf-sun ring-2 ring-offset-2"> 2 </span> Affordable options once we verify info. </button></li><li class="ng-tns-c35-0 mb-3 cursor-pointer ng-star-inserted" data-role="step-2-button"><button class="ng-tns-c35-0" aria-label="3. Money in hand as fast as 1 hour after loan closing." data-tracked="true"><span aria-hidden="true" class="ng-tns-c35-0 mr-3 rounded-full ring-omf-sun inline-flex w-7 h-7 justify-center items-center ring-1"> 3 </span> Money in hand as fast as 1 hour after loan closing. </button></li><!----></ol></div><div class="flex justify-center items-center ng-tns-c35-0"><div class="relative aspect-[237/134] h-[134px] lg:h-[191px] xl:h-full overflow-hidden ng-tns-c35-0"><img aria-live="polite" class="absolute top-0 left-0 w-full h-full object-fill ng-tns-c35-0 ng-trigger ng-trigger-stepAnimation ng-star-inserted ng-animating" src="assets/images/illustrations/step-1.svg" alt="A line illustration of a todo list with checked items on the screen of a laptop." aria-hidden="true"><!----><!----><img aria-live="polite" class="absolute top-0 left-0 w-full h-full object-fill ng-tns-c35-0 ng-trigger ng-trigger-stepAnimation ng-star-inserted ng-animating" src="assets/images/illustrations/step-2.svg" alt="A line illustration of a smiling face on the screen of a laptop." aria-hidden="true"><!----><!----><!----><!----><!----></div></div></div></div></omf-container></div></omf-steps><omf-home-trustpilot><omf-container><div class="container mx-auto px-4 lg:px-20"><div class="py-10 xl:py-20"><h2 class="text-4xl text-center mb-2">In your corner</h2><p class="text-xl leading-6 text-center mb-8">Tens of thousands of customers say we’re a lender you can lean on. Here are some favorites.</p><omf-h-rule class="text-omf-sky-light w-[240px] mb-8 mx-auto" _nghost-serverapp-c12=""><div _ngcontent-serverapp-c12="" class="flex gap-x-1"><div _ngcontent-serverapp-c12="" class="ng-star-inserted"><svg _ngcontent-serverApp-c12="" aria-hidden="true" focusable="false" width="22" height="3" viewBox="0 0 22 3" fill="none" xmlns="http://www.w3.org/2000/svg"><rect _ngcontent-serverApp-c12="" width="6" height="3" rx="1.5" fill="currentColor"></rect><rect _ngcontent-serverApp-c12="" x="10" width="12" height="3" rx="1.5" fill="currentColor"></rect></svg></div><!----><div _ngcontent-serverapp-c12="" class="grow"><svg _ngcontent-serverApp-c12="" aria-hidden="true" focusable="false" width="100%" height="3" fill="none" xmlns="http://www.w3.org/2000/svg"><rect _ngcontent-serverApp-c12="" width="100%" height="3" rx="1.5" fill="currentColor"></rect></svg></div><div _ngcontent-serverapp-c12=""><div _ngcontent-serverapp-c12="" class="ng-star-inserted"><svg _ngcontent-serverApp-c12="" aria-hidden="true" focusable="false" width="22" height="3" viewBox="0 0 22 3" fill="none" xmlns="http://www.w3.org/2000/svg"><rect _ngcontent-serverApp-c12="" width="12" height="3" rx="1.5" fill="currentColor"></rect><rect _ngcontent-serverApp-c12="" x="16" width="6" height="3" rx="1.5" fill="currentColor"></rect></svg></div><!----></div></div></omf-h-rule><omf-trustpilot classlist="h-[140px] flex justify-center" templateid="53aa8912dec7e10d38f59f36"><div data-role="trustpilot-widget" data-locale="en-US" data-businessunit-id="56df50840000ff000589f1a3" data-style-height="100%" data-style-width="100%" data-theme="light" data-tags="SafeName" data-review-languages="en" data-text-color="#191919" class="trustpilot-widget h-[140px] flex justify-center" data-template-id="53aa8912dec7e10d38f59f36" style="position: relative;"><iframe title="Customer reviews powered by Trustpilot" loading="auto" src="https://widget.trustpilot.com/trustboxes/53aa8912dec7e10d38f59f36/index.html?businessunitId=56df50840000ff000589f1a3&amp;templateId=53aa8912dec7e10d38f59f36#role=trustpilot-widget&amp;locale=en-US&amp;styleHeight=100%25&amp;styleWidth=100%25&amp;theme=light&amp;tags=SafeName&amp;reviewLanguages=en&amp;textColor=%23191919" style="position: relative; height: 100%; width: 100%; border-style: none; display: block; overflow: hidden;"></iframe></div></omf-trustpilot></div></div></omf-container></omf-home-trustpilot><omf-loan-amounts><div class="py-10 xl:py-0"><omf-container><div class="container mx-auto px-4 lg:px-20"><div class="grid grid-cols-1 gap-y-11 gap-x-4 lg:grid-cols-2 lg:gap-y-0 lg:gap-x-6"><div class="flex items-center justify-center"><img loading="lazy" width="100%" height="100%" class="md:hidden max-w-[345px] max-h-[345px]" style="clip-path: circle(48%);" src="https://images.ctfassets.net/h0969ul5arsq/2RbApaludajsxQXYcQKlwQ/ca2f71ddf6574abe93e531bf7db5297b/personal-loan-amounts-small.webp" alt="Smiling mother holding small child on her back with view of water in the background"><img loading="lazy" width="100%" height="100%" class="hidden md:block max-w-[472px] max-h-[472px]" style="clip-path: circle(48%);" src="https://images.ctfassets.net/h0969ul5arsq/2ehluaWNxD1dkC9QyTxJhl/42f537ed881e0e677f46dc2cad44f6e2/personal-loan-amounts.webp" alt="Smiling mother holding small child on her back with view of water in the background"></div><div class="flex flex-col justify-center items-center"><h2 class="text-omf-grey-dark font-bold mb-2">Personal and Auto Loan Amounts<sup data-footnote="loan-refinancing"><a href="/#footnote-loan-refinancing" aria-label="3:Loan Refinancing Disclosures">3</a></sup></h2><p class="text-4xl md:text-[60px] md:leading-[72px] mb-2 whitespace-nowrap">$1,500-$20,000</p><a omflink="" href="https://www.onemainfinancial.com/legal/loan-fees" omflandableevent="product_info" data-role="loan-amounts-loan-amounts-and-fees-link" class="text-omf-sky underline mb-6 font-normal"> See our loan amounts and fees </a><div class="w-full max-w-[322px] mb-2"><omf-anchor-button href="/prequalification" width="full" omflandableevent="promo_offer" data-role="loan-amounts-check-for-offers-link" _nghost-serverapp-c3="" class="w-full"><!----><a _ngcontent-serverapp-c3="" omflink="" target="_self" data-ignore-external-link="false" class="text-center inline-block cursor-pointer ring-offset-2 outline-offset-2 focus:ring-2 focus-visible:outline focus-visible:outline-2 active:brightness-75 variant-primary size-medium width-full ring-omf-black outline-omf-black ng-star-inserted" href="https://www.onemainfinancial.com/prequalification"> Check for offers <!----></a><!----><!----></omf-anchor-button></div><p class="text-sm">This won’t affect your credit score.</p></div></div></div></omf-container></div></omf-loan-amounts><omf-get-ahead><div class="py-10 xl:py-20"><omf-container><div class="container mx-auto px-4 lg:px-20"><div class="flex flex-col items-center mb-8"><h2 class="text-4xl text-center mb-4">Get ahead and stay ahead</h2><p class="text-center">Access fresh ways to stretch your budget and make progress one win at a time.</p></div><omf-h-rule class="text-omf-sky-light w-[240px] mb-8 mx-auto" _nghost-serverapp-c12=""><div _ngcontent-serverapp-c12="" class="flex gap-x-1"><div _ngcontent-serverapp-c12="" class="ng-star-inserted"><svg _ngcontent-serverApp-c12="" aria-hidden="true" focusable="false" width="22" height="3" viewBox="0 0 22 3" fill="none" xmlns="http://www.w3.org/2000/svg"><rect _ngcontent-serverApp-c12="" width="6" height="3" rx="1.5" fill="currentColor"></rect><rect _ngcontent-serverApp-c12="" x="10" width="12" height="3" rx="1.5" fill="currentColor"></rect></svg></div><!----><div _ngcontent-serverapp-c12="" class="grow"><svg _ngcontent-serverApp-c12="" aria-hidden="true" focusable="false" width="100%" height="3" fill="none" xmlns="http://www.w3.org/2000/svg"><rect _ngcontent-serverApp-c12="" width="100%" height="3" rx="1.5" fill="currentColor"></rect></svg></div><div _ngcontent-serverapp-c12=""><div _ngcontent-serverapp-c12="" class="ng-star-inserted"><svg _ngcontent-serverApp-c12="" aria-hidden="true" focusable="false" width="22" height="3" viewBox="0 0 22 3" fill="none" xmlns="http://www.w3.org/2000/svg"><rect _ngcontent-serverApp-c12="" width="12" height="3" rx="1.5" fill="currentColor"></rect><rect _ngcontent-serverApp-c12="" x="16" width="6" height="3" rx="1.5" fill="currentColor"></rect></svg></div><!----></div></div></omf-h-rule><div class="grid grid-cols-1 xl:grid-cols-3 gap-8"><div class="flex flex-col"><div class="h-24 w-24 mb-8 self-center xl:self-start flex justify-center xl:justify-start"><img loading="lazy" alt="An illustration of a budget with a pie chart and line graph" src="assets/images/illustrations/budget.svg"></div><h3 class="text-2xl mb-2">Take your finances to the next level</h3><p class="mb-6 2xl:mb-20">Master your budget or study up on saving. It’s your time to take control.</p><a omflink="" href="https://www.onemainfinancial.com/resources" omflandableevent="loyalty" data-role="get-ahead-resources-link" class="text-omf-sky hover:underline hover:cursor-pointer"> Resources → </a></div><div class="flex flex-col"><div class="h-24 w-24 mb-8 self-center xl:self-start flex justify-center xl:justify-start"><img loading="lazy" alt="Scissors cutting paper with a single dollar sign in the middle of the paper" src="assets/images/illustrations/scissors.svg"></div><h3 class="text-2xl mb-2">Lower your monthly bills</h3><p class="mb-6 2xl:mb-20">With Trim doing the hard work to slash bills (for free), customers saved an average of $213/year.<sup data-footnote="trim"><a href="/#footnote-trim" aria-label="4:OneMain Financial Trim Disclosures">4</a></sup></p><a href="https://www.asktrim.com/" omflandableevent="loyalty" data-role="get-ahead-trim-link" class="text-omf-sky hover:underline hover:cursor-pointer"> Go to Trim → </a></div><div class="flex flex-col"><div class="h-24 w-24 mb-8 self-center xl:self-start flex justify-center xl:justify-start"><img loading="lazy" alt="A hand holding a card with a thumb showing over card" class="mb-8 h-24 w-24 self-center xl:self-start" src="assets/images/illustrations/card.svg"></div><h3 class="text-2xl mb-2">Turn your payments into progress</h3><p class="mb-6 2xl:mb-20">Get rewarded for paying on time with BrightWay<sup>®</sup> — the credit card that grows with you.<sup data-footnote="brightway"><a href="/#footnote-brightway" aria-label="5:OneMain Financial BrightWay Disclosures">5</a></sup></p><a omflink="" href="https://www.onemainfinancial.com/credit-cards" omflandableevent="product_info" data-role="get-ahead-brightway-link" class="text-omf-sky hover:underline hover:cursor-pointer"> Learn more → </a></div></div></div></omf-container></div></omf-get-ahead><omf-check-for-offers><div class="bg-omf-sky-light py-10 xl:py-20"><omf-container><div class="container mx-auto px-4 lg:px-20"><div class="flex flex-col items-center"><img loading="lazy" alt="A letter, phone, and tablet with a single finger navigating a website" class="mb-2" src="assets/images/illustrations/online.svg"><h2 class="text-4xl mb-6 text-center">Get the money you need to move you forward</h2><div class="mb-2"><omf-anchor-button href="/prequalification" omflandableevent="promo_offer" data-role="offers-check-for-offers-link" _nghost-serverapp-c3=""><!----><a _ngcontent-serverapp-c3="" omflink="" target="_self" data-ignore-external-link="false" class="text-center inline-block cursor-pointer ring-offset-2 outline-offset-2 focus:ring-2 focus-visible:outline focus-visible:outline-2 active:brightness-75 variant-primary size-medium width-default ring-omf-black outline-omf-black ng-star-inserted" href="https://www.onemainfinancial.com/prequalification"> Check for offers <!----></a><!----><!----></omf-anchor-button></div><p class="text-sm">This won't affect your credit score.</p></div></div></omf-container></div></omf-check-for-offers></omf-index><!----></main><footer id="footerContent"><omf-footer><div class="text-omf-white"><div class="bg-omf-sky"><omf-container><div class="container mx-auto px-4 lg:px-20"><div class="py-10 xl:py-16"><omf-footer-navigation _nghost-serverapp-c27=""><div _ngcontent-serverapp-c27="" class="grid gap-y-12"><div _ngcontent-serverapp-c27="" class="grid gap-y-6 items-center md:grid-cols-2"><div _ngcontent-serverapp-c27="" class="flex justify-center md:justify-start"><a _ngcontent-serverapp-c27="" routerlink="/" title="Link to OneMain Financial home page" data-role="footer-home-link" class="cursor-pointer inline-block py-3" href="/"><img _ngcontent-serverapp-c27="" loading="lazy" alt="OneMain Financial logo" src="assets/images/logos/onemain-inverted.svg"></a></div><div _ngcontent-serverapp-c27="" class="flex gap-x-4 justify-center md:justify-end"><div _ngcontent-serverapp-c27=""><omf-footer-social-link _ngcontent-serverapp-c27="" name="facebook" href="https://www.facebook.com/OneMain" omflandableevent="global_nav" data-role="footer-social-facebook-link" _nghost-serverapp-c26=""><a _ngcontent-serverapp-c26="" target="_blank" rel="noopener" class="focus:bg-omf-white focus:outline focus:outline-1 focus:outline-offset-1 focus:outline-omf-sun grid h-10 hover:bg-omf-white place-items-center rounded-md social-icon--facebook w-10" title="OneMain Financial Facebook account" href="https://www.facebook.com/OneMain"><omf-icon _ngcontent-serverapp-c26=""><svg-icon><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+  <path d="M24 12.0276C24 5.38494 18.6274 0 12 0C5.37258 0 0 5.38494 0 12.0276C0 18.0308 4.3882 23.0068 10.125 23.9091V15.5043H7.07812V12.0276H10.125V9.37777C10.125 6.36335 11.9166 4.69828 14.6576 4.69828C15.9705 4.69828 17.3438 4.9332 17.3438 4.9332V7.89312H15.8306C14.34 7.89312 13.875 8.82032 13.875 9.77149V12.0276H17.2031L16.6711 15.5043H13.875V23.9091C19.6118 23.0068 24 18.0311 24 12.0276Z"></path>
+</svg></svg-icon></omf-icon></a></omf-footer-social-link></div><div _ngcontent-serverapp-c27=""><omf-footer-social-link _ngcontent-serverapp-c27="" name="instagram" href="https://instagram.com/onemain/" omflandableevent="global_nav" data-role="footer-social-instagram-link" _nghost-serverapp-c26=""><a _ngcontent-serverapp-c26="" target="_blank" rel="noopener" class="focus:bg-omf-white focus:outline focus:outline-1 focus:outline-offset-1 focus:outline-omf-sun grid h-10 hover:bg-omf-white place-items-center rounded-md social-icon--instagram w-10" title="OneMain Financial Instagram account" href="https://instagram.com/onemain/"><omf-icon _ngcontent-serverapp-c26=""><svg-icon><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+  <path d="M7.03017 0.083926C5.75336 0.144167 4.88143 0.347929 4.11918 0.647452C3.33029 0.954895 2.66165 1.36746 1.99636 2.03515C1.33107 2.70283 0.921389 3.37196 0.616106 4.16205C0.320663 4.92598 0.120501 5.79862 0.0641001 7.07616C0.00769954 8.35369 -0.00478059 8.76433 0.00145947 12.0231C0.00769954 15.2818 0.0220997 15.6903 0.0840203 16.9705C0.144981 18.2471 0.348023 19.1188 0.647546 19.8812C0.955469 20.6701 1.36755 21.3385 2.03548 22.0041C2.70341 22.6696 3.37205 23.0783 4.16406 23.3841C4.92727 23.679 5.80016 23.8802 7.07745 23.9361C8.35474 23.992 8.76587 24.005 12.0237 23.9987C15.2815 23.9925 15.6916 23.9781 16.9715 23.9174C18.2515 23.8566 19.1186 23.6522 19.8813 23.3541C20.6702 23.0454 21.3391 22.6341 22.0042 21.9659C22.6692 21.2977 23.0787 20.6281 23.3837 19.8376C23.6794 19.0744 23.8803 18.2015 23.9357 16.9251C23.9916 15.6442 24.0048 15.2353 23.9986 11.977C23.9923 8.71873 23.9777 8.31025 23.917 7.03056C23.8563 5.75086 23.653 4.88181 23.3537 4.11885C23.0453 3.32996 22.6337 2.66203 21.966 1.99603C21.2983 1.33002 20.6282 0.920815 19.8379 0.616491C19.0742 0.321048 18.2018 0.119686 16.9245 0.0644858C15.6472 0.00928523 15.2361 -0.00487492 11.9771 0.00136515C8.71811 0.00760521 8.3101 0.0215254 7.03017 0.083926ZM7.17033 21.7773C6.00032 21.7264 5.36503 21.532 4.94167 21.3693C4.38102 21.1533 3.98166 20.8921 3.55974 20.4743C3.13781 20.0564 2.87861 19.6556 2.65973 19.0962C2.49532 18.6728 2.29732 18.0383 2.2426 16.8683C2.18308 15.6037 2.1706 15.224 2.16364 12.0202C2.15668 8.81641 2.16892 8.43721 2.22436 7.17216C2.27428 6.00311 2.46988 5.3671 2.63237 4.94398C2.84837 4.38261 3.10853 3.98397 3.52734 3.56228C3.94614 3.1406 4.34574 2.88091 4.90567 2.66203C5.32855 2.49691 5.96312 2.30059 7.13265 2.24491C8.39818 2.18491 8.77739 2.17291 11.9807 2.16595C15.184 2.15899 15.5642 2.17099 16.8302 2.22667C17.9992 2.27755 18.6355 2.47123 19.0581 2.63467C19.619 2.85067 20.0181 3.11012 20.4398 3.52964C20.8615 3.94917 21.1214 4.34733 21.3403 4.90846C21.5057 5.33014 21.702 5.96447 21.7572 7.13472C21.8174 8.40025 21.8311 8.77969 21.8369 11.9828C21.8426 15.1858 21.8314 15.5662 21.7759 16.8308C21.7248 18.0008 21.5309 18.6364 21.3679 19.0602C21.1519 19.6206 20.8915 20.0202 20.4725 20.4417C20.0534 20.8631 19.6543 21.1228 19.0941 21.3417C18.6717 21.5065 18.0364 21.7033 16.8679 21.759C15.6023 21.8185 15.2231 21.831 12.0186 21.838C8.81411 21.8449 8.4361 21.832 7.17057 21.7773M16.9531 5.58646C16.9535 5.87129 17.0385 6.14958 17.1971 6.38613C17.3558 6.62269 17.581 6.80688 17.8443 6.91542C18.1077 7.02396 18.3973 7.05197 18.6765 6.9959C18.9558 6.93983 19.2122 6.80221 19.4132 6.60043C19.6142 6.39866 19.7509 6.1418 19.806 5.86234C19.861 5.58288 19.8319 5.29338 19.7224 5.03044C19.6129 4.7675 19.4279 4.54295 19.1908 4.38517C18.9536 4.22739 18.675 4.14348 18.3902 4.14405C18.0084 4.14481 17.6425 4.29719 17.373 4.56768C17.1035 4.83818 16.9524 5.20463 16.9531 5.58646ZM5.83856 12.012C5.84528 15.4153 8.60915 18.1679 12.0117 18.1614C15.4142 18.1549 18.1687 15.3913 18.1622 11.988C18.1557 8.58481 15.3911 5.8315 11.9881 5.83822C8.58515 5.84494 5.83208 8.60929 5.83856 12.012ZM8.00002 12.0077C7.99846 11.2166 8.23153 10.4427 8.66976 9.78405C9.108 9.12537 9.73172 8.61143 10.462 8.30722C11.1924 8.00302 11.9965 7.92221 12.7727 8.07502C13.549 8.22783 14.2625 8.60739 14.823 9.16571C15.3836 9.72403 15.766 10.436 15.9218 11.2117C16.0777 11.9873 16.0001 12.7917 15.6988 13.5233C15.3975 14.2548 14.886 14.8805 14.2291 15.3214C13.5721 15.7622 12.7992 15.9984 12.0081 15.9999C11.4827 16.001 10.9623 15.8986 10.4766 15.6986C9.99086 15.4986 9.54928 15.2048 9.17709 14.8341C8.80489 14.4633 8.50938 14.0229 8.30741 13.538C8.10545 13.053 8.001 12.533 8.00002 12.0077Z"></path>
+</svg></svg-icon></omf-icon></a></omf-footer-social-link></div><div _ngcontent-serverapp-c27=""><omf-footer-social-link _ngcontent-serverapp-c27="" name="youtube" href="https://www.youtube.com/c/onemain" omflandableevent="global_nav" data-role="footer-social-youtube-link" _nghost-serverapp-c26=""><a _ngcontent-serverapp-c26="" target="_blank" rel="noopener" class="focus:bg-omf-white focus:outline focus:outline-1 focus:outline-offset-1 focus:outline-omf-sun grid h-10 hover:bg-omf-white place-items-center rounded-md social-icon--youtube w-10" title="OneMain Financial Youtube account" href="https://www.youtube.com/c/onemain"><omf-icon _ngcontent-serverapp-c26=""><svg-icon><svg width="24" height="24" viewBox="0 0 24 17" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+  <path d="M23.4982 2.64C23.2227 1.60091 22.4086 0.782727 21.3764 0.504545C19.5055 0 12 0 12 0C12 0 4.49455 0 2.62364 0.504545C1.59136 0.782727 0.777273 1.60091 0.501818 2.64C0 4.52455 0 8.45455 0 8.45455C0 8.45455 0 12.3845 0.501818 14.2691C0.777273 15.3082 1.59136 16.1264 2.62364 16.4045C4.49591 16.9091 12 16.9091 12 16.9091C12 16.9091 19.5055 16.9091 21.3764 16.4045C22.4086 16.1264 23.2227 15.3082 23.4982 14.2691C24 12.3859 24 8.45455 24 8.45455C24 8.45455 24 4.52455 23.4982 2.64ZM9.54545 12.0232V4.88591L15.8182 8.45455L9.54545 12.0232Z"></path>
+</svg></svg-icon></omf-icon></a></omf-footer-social-link></div><div _ngcontent-serverapp-c27=""><omf-footer-social-link _ngcontent-serverapp-c27="" name="linkedin" href="https://www.linkedin.com/company/7932726" omflandableevent="global_nav" data-role="footer-social-linkedin-link" _nghost-serverapp-c26=""><a _ngcontent-serverapp-c26="" target="_blank" rel="noopener" class="focus:bg-omf-white focus:outline focus:outline-1 focus:outline-offset-1 focus:outline-omf-sun grid h-10 hover:bg-omf-white place-items-center rounded-md social-icon--linkedin w-10" title="OneMain Financial Linkedin account" href="https://www.linkedin.com/company/7932726"><omf-icon _ngcontent-serverapp-c26=""><svg-icon><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+  <path d="M22.1613 0H1.83869C0.824242 0 0 0.824242 0 1.83869V22.1613C0 23.1776 0.824242 24 1.83869 24H22.1613C23.1776 24 24 23.1758 24 22.1613V1.83869C24 0.822378 23.1758 0 22.1613 0ZM7.13846 20.4289H3.59907V9.02751H7.13846V20.4289ZM5.35758 7.42005C4.22378 7.42005 3.30629 6.50256 3.30629 5.36876C3.30629 4.23497 4.22378 3.31748 5.35758 3.31748C6.49138 3.31748 7.40886 4.23497 7.40886 5.36876C7.40886 6.50256 6.49138 7.42005 5.35758 7.42005ZM20.4364 20.4289H16.897V14.3235C16.897 14.3235 17.1636 11.8191 15.0415 11.8191C12.9193 11.8191 12.9082 14.0065 12.9175 14.2881V14.3179V20.4289H9.37809V9.02751H12.7534V10.6275C12.7534 10.6275 13.6895 8.72354 16.1343 8.72354C19.3753 8.72354 20.4326 10.3963 20.4326 14.3235V20.4289H20.4364Z"></path>
+</svg></svg-icon></omf-icon></a></omf-footer-social-link></div></div></div><nav _ngcontent-serverapp-c27="" aria-label="primary-footer-navigation"><ul _ngcontent-serverapp-c27="" class="grid grid-cols-2 gap-y-8 gap-x-4 lg:gap-x-6 lg:grid-cols-4 leading-4"><li _ngcontent-serverapp-c27=""><p _ngcontent-serverapp-c27="" class="text-omf-sun mb-2 lg:mb-3">Products</p><ul _ngcontent-serverapp-c27=""><li _ngcontent-serverapp-c27=""><a _ngcontent-serverapp-c27="" omflink="" href="https://www.onemainfinancial.com/personal-loans" omflandableevent="global_nav" data-role="footer-personal-loans-link" class="hover:underline"> Personal loans </a></li><li _ngcontent-serverapp-c27=""><a _ngcontent-serverapp-c27="" omflink="" href="https://www.onemainfinancial.com/credit-cards" omflandableevent="global_nav" data-role="footer-credit-cards-link" class="hover:underline"> Credit cards </a></li><li _ngcontent-serverapp-c27=""><a _ngcontent-serverapp-c27="" href="https://www.onemainsolutions.com" omflandableevent="global_nav" data-role="footer-insurance-link" class="hover:underline"> Insurance </a></li><li _ngcontent-serverapp-c27=""><a _ngcontent-serverapp-c27="" omflink="" href="https://www.onemainfinancial.com/mortgage-payment-solutions" omflandableevent="global_nav" data-role="footer-mortgage-payment-solutions-link" class="hover:underline"> Mortgage payment solutions </a></li><li _ngcontent-serverapp-c27=""><a _ngcontent-serverapp-c27="" omflink="" href="https://www.onemainfinancial.com/merchants" omflandableevent="global_nav" data-role="footer-merchant-referral-program-link" class="hover:underline"> Merchant referral program </a></li></ul></li><li _ngcontent-serverapp-c27=""><p _ngcontent-serverapp-c27="" class="text-omf-sun mb-2 lg:mb-3">Company</p><ul _ngcontent-serverapp-c27=""><li _ngcontent-serverapp-c27=""><a _ngcontent-serverapp-c27="" omflink="" href="https://www.onemainfinancial.com/about-us" omflandableevent="global_nav" data-role="footer-about-us-link" class="hover:underline"> About us </a></li><li _ngcontent-serverapp-c27=""><a _ngcontent-serverapp-c27="" href="https://jobs.onemainfinancial.com" omflandableevent="global_nav" data-role="footer-careers-link" class="hover:underline"> Careers </a></li><li _ngcontent-serverapp-c27=""><a _ngcontent-serverapp-c27="" href="https://investor.onemainfinancial.com/CorporateProfile/default.aspx" omflandableevent="global_nav" data-role="footer-investors-link" class="hover:underline"> Investors </a></li><li _ngcontent-serverapp-c27=""><a _ngcontent-serverapp-c27="" omflink="" href="https://www.onemainfinancial.com/affiliates" omflandableevent="global_nav" data-role="footer-affiliates-link" class="hover:underline"> Affiliates </a></li><li _ngcontent-serverapp-c27=""><a _ngcontent-serverapp-c27="" href="https://investor.onemainfinancial.com/News/default.aspx" omflandableevent="global_nav" data-role="footer-newsroom-link" class="hover:underline"> Newsroom </a></li><li _ngcontent-serverapp-c27=""><a _ngcontent-serverapp-c27="" omflink="" href="https://www.onemainfinancial.com/accessibility-statement" omflandableevent="global_nav" data-role="footer-accessibility-statement" class="hover:underline"> Accessibility Statement </a></li><li _ngcontent-serverapp-c27=""><a _ngcontent-serverapp-c27="" omflink="" href="https://www.onemainfinancial.com/reviews" omflandableevent="global_nav" data-role="one-main-reviews" class="hover:underline"> OneMain Reviews </a></li></ul></li><li _ngcontent-serverapp-c27=""><p _ngcontent-serverapp-c27="" class="text-omf-sun mb-2 lg:mb-3">Legal</p><ul _ngcontent-serverapp-c27=""><li _ngcontent-serverapp-c27=""><a _ngcontent-serverapp-c27="" omflink="" href="https://www.onemainfinancial.com/legal/loan-fees" omflandableevent="global_nav" data-role="footer-loan-amounts-and-fees-link" class="hover:underline"> Loan amounts and fees </a></li><li _ngcontent-serverapp-c27=""><a _ngcontent-serverapp-c27="" omflink="" href="https://www.onemainfinancial.com/legal" omflandableevent="global_nav" data-role="footer-legal-and-privacy-center-link" class="hover:underline"> Legal &amp; privacy center </a></li><li _ngcontent-serverapp-c27=""><a _ngcontent-serverapp-c27="" omflink="" href="https://www.onemainfinancial.com/legal/disclosures" omflandableevent="global_nav" data-role="footer-disclosures-link" class="hover:underline"> Disclosures </a></li><li _ngcontent-serverapp-c27=""><a _ngcontent-serverapp-c27="" omflink="" href="https://www.onemainfinancial.com/credit-bureau" omflandableevent="global_nav" data-role="footer-credit-bureau-information-link" class="hover:underline"> Credit bureau information </a></li><li _ngcontent-serverapp-c27=""><a _ngcontent-serverapp-c27="" href="javascript:;" onclick="OneTrust.ToggleInfoDisplay()" data-role="footer-do-not-sell-or-share-link" class="hover:underline">Do not sell or share my personal information</a></li></ul></li><li _ngcontent-serverapp-c27=""><p _ngcontent-serverapp-c27="" class="text-omf-sun mb-2 lg:mb-3">Support</p><ul _ngcontent-serverapp-c27=""><li _ngcontent-serverapp-c27=""><a _ngcontent-serverapp-c27="" omflink="" href="https://www.onemainfinancial.com/contact-us" omflandableevent="global_nav" data-role="footer-contact-us-link" class="hover:underline"> Contact us </a></li><li _ngcontent-serverapp-c27=""><a _ngcontent-serverapp-c27="" routerlink="/branches" omflandableevent="global_nav" data-role="footer-branch-locator-link" class="hover:underline" href="/branches"> Branch locator </a></li><li _ngcontent-serverapp-c27=""><a _ngcontent-serverapp-c27="" omflink="" href="https://www.onemainfinancial.com/military-benefits" omflandableevent="global_nav" data-role="footer-military-family-support-link" class="hover:underline"> Military family support </a></li><li _ngcontent-serverapp-c27=""><a _ngcontent-serverapp-c27="" omflink="" href="https://www.onemainfinancial.com/faq" omflandableevent="global_nav" data-role="footer-faqs-link" class="hover:underline"> FAQs </a></li></ul></li></ul></nav><div _ngcontent-serverapp-c27="" class="grid grid-cols-2 lg:flex lg:gap-x-6 items-center"><div _ngcontent-serverapp-c27="" class="flex justify-start"><omf-download-app-button _ngcontent-serverapp-c27="" variant="secondary" size="small" omflandableevent="global_nav" data-role="footer-app-download-link"><omf-anchor-button href="/mobile-app" backgroundtheme="dark" _nghost-serverapp-c3=""><!----><a _ngcontent-serverapp-c3="" omflink="" target="_self" data-ignore-external-link="false" class="text-center inline-block cursor-pointer ring-offset-2 outline-offset-2 focus:ring-2 focus-visible:outline focus-visible:outline-2 active:brightness-75 variant-secondary size-small width-default inverted ring-omf-white outline-omf-white ring-offset-omf-sky" href="https://www.onemainfinancial.com/mobile-app"><span class="flex gap-x-2"><omf-icon name="mobile-phone"><svg-icon><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+  <path d="M6 22.5V1.5H18V22.5H9.6" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"></path>
+  <path d="M9.75 3.5H12" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"></path>
+  <path d="M13.75 4C14.0261 4 14.25 3.77614 14.25 3.5C14.25 3.22386 14.0261 3 13.75 3C13.4739 3 13.25 3.22386 13.25 3.5C13.25 3.77614 13.4739 4 13.75 4Z" fill="currentColor"></path>
+  <path d="M12 20.5C12.8284 20.5 13.5 19.8284 13.5 19C13.5 18.1716 12.8284 17.5 12 17.5C11.1716 17.5 10.5 18.1716 10.5 19C10.5 19.8284 11.1716 20.5 12 20.5Z" stroke="currentColor" stroke-miterlimit="10"></path>
+</svg></svg-icon></omf-icon> Download App </span><!----></a><!----><!----></omf-anchor-button><!----><!----></omf-download-app-button></div></div></div></omf-footer-navigation></div></div></omf-container></div><div class="bg-omf-black"><omf-container><div class="container mx-auto px-4 lg:px-20"><div class="py-10 xl:py-16"><omf-footer-legal _nghost-serverapp-c25=""><div _ngcontent-serverapp-c25="" class="text-sm font-light"><div _ngcontent-serverapp-c25="" class="grid grid-cols-1 gap-x-4 gap-y-8 md:gap-x-6 divide-omf-grey-dark divide-y lg:divide-none lg:grid-cols-12"><div _ngcontent-serverapp-c25="" class="space-y-8 lg:col-span-5 2xl:col-span-4"><p _ngcontent-serverapp-c25="">If you are using a screen reader and are having problems using the website please call <a _ngcontent-serverapp-c25="" href="tel:+800-290-7002" data-role="footer-support-phone-link" class="whitespace-nowrap">800-290-7002</a> for assistance.</p><p _ngcontent-serverapp-c25=""><strong _ngcontent-serverapp-c25="">OneMain Holdings, Inc.</strong><br _ngcontent-serverapp-c25=""> 601 N.W. Second Street <br _ngcontent-serverapp-c25=""> Evansville, IN 47708-1013 </p><p _ngcontent-serverapp-c25=""> Copyright © 2025, All rights reserved. </p><p _ngcontent-serverapp-c25=""><strong _ngcontent-serverapp-c25="">State Licenses:</strong> OneMain Financial Group, LLC (NMLS# 1339418) - <b _ngcontent-serverapp-c25=""><abbr _ngcontent-serverapp-c25="" title="California">CA</abbr>:</b> Loans made or arranged pursuant to Department of Financial Protection and Innovation California Finance Lenders License. <b _ngcontent-serverapp-c25=""><abbr _ngcontent-serverapp-c25="" title="Pennsylvania">PA</abbr>:</b> Licensed by the Pennsylvania Department of Banking and Securities. <b _ngcontent-serverapp-c25=""><abbr _ngcontent-serverapp-c25="" title="Virginia">VA</abbr>:</b> Licensed by the Virginia State Corporation Commission - License Number CFI-156. OneMain Mortgage Services, Inc. (NMLS# 931153) - <b _ngcontent-serverapp-c25=""><abbr _ngcontent-serverapp-c25="" title="New York">NY</abbr>:</b> Registered New York Mortgage Loan Servicer. Additional licensing information available on <a _ngcontent-serverapp-c25="" omflink="" href="https://www.onemainfinancial.com/legal/disclosures" data-role="footer-disclosures-link">OneMain Disclosures</a>. </p><p _ngcontent-serverapp-c25=""><strong _ngcontent-serverapp-c25="">For residents of the State of Washington only:</strong> OneMain Financial Group, LLC - Consumer Loan Company License - NMLS # 1339418. <a _ngcontent-serverapp-c25="" href="https://nmlsconsumeraccess.org/" data-role="footer-consumer-access-database-link">Click here for the NMLS Consumer Access Database</a>. </p><p _ngcontent-serverapp-c25=""> For Housing Counselors in the State of Washington, please email us at the following link in regards to your customers loan modification status: <a _ngcontent-serverapp-c25="" href="mailto:REModifications@onemainfinancial.com" data-role="footer-remodifications-link">REModifications@onemainfinancial.com</a>. Please ensure your customer has provided us with authorization to work with you. </p></div><div _ngcontent-serverapp-c25="" class="space-y-8 pt-8 lg:pt-0 lg:col-span-5 lg:col-start-7 2xl:col-span-4 2xl:col-start-7"><p _ngcontent-serverapp-c25="" class="font-medium ng-star-inserted">Disclosures</p><omf-footer-footnotes _ngcontent-serverapp-c25="" _nghost-serverapp-c24="" class="ng-star-inserted"><dl _ngcontent-serverapp-c24="" class="space-y-8"><div _ngcontent-serverapp-c24="" data-role="footnote-container" class="footer-target flex ng-star-inserted" id="footnote-loan-qualifications"><dt _ngcontent-serverapp-c24="" data-role="footnote-marker" class="pr-2">1</dt><dd _ngcontent-serverapp-c24="" data-role="footnote-content" class="grow"><p>Funds within an hour after loan closing must be accessed by using a bank-issued debit card and are disbursed through the SpeedFunds® debit card network. Funds may also be disbursed by electronic deposit to the borrower’s bank account through the ACH network and available approximately 1 to 2 business days after closing or disbursed by check. SpeedFunds® is a registered trademark of OneMain Financial Holdings, LLC.</p>
+</dd></div><div _ngcontent-serverapp-c24="" data-role="footnote-container" class="footer-target flex ng-star-inserted" id="footnote-loan-uses"><dt _ngcontent-serverapp-c24="" data-role="footnote-marker" class="pr-2">2</dt><dd _ngcontent-serverapp-c24="" data-role="footnote-content" class="grow"><p>Loan proceeds cannot be used for postsecondary educational expenses as defined by the CFPB’s Regulation Z such as college, university or vocational expense; for any business or commercial purpose; to purchase cryptocurrency assets, securities, derivatives or other speculative investments; or for gambling or illegal purposes.</p>
+</dd></div><div _ngcontent-serverapp-c24="" data-role="footnote-container" class="footer-target flex ng-star-inserted" id="footnote-loan-refinancing"><dt _ngcontent-serverapp-c24="" data-role="footnote-marker" class="pr-2">3</dt><dd _ngcontent-serverapp-c24="" data-role="footnote-content" class="grow"><p>Not all applicants will qualify for larger loan amounts or most favorable loan terms. Larger loan amounts require a first lien on a motor vehicle no more than ten years old, that meets our value requirements, titled in your name with valid insurance. Loan approval and actual loan terms depend on your state of residence and your ability to meet our credit standards (including a responsible credit history, sufficient income after monthly expenses, and availability of collateral). APRs are generally higher on loans not secured by a vehicle. Highly-qualified applicants may be offered higher loan amounts and/or lower APRs than those shown above. Active duty military, their spouse or dependents covered by the Military Lending Act may not pledge any vehicle as collateral.</p>
+<p>Example Loan: A $6,000 loan with a 24.99% APR repayable in 60 monthly installments would have monthly payments of $176.07. This example is based on an average customer with good credit.</p>
+<p>  <strong>Borrowers in these states are subject to these minimum loan sizes:</strong> <strong>Alabama:</strong> $2,100. <strong>California:</strong> $3,000. <strong>Georgia:</strong> $3,100. <strong>North Dakota:</strong> $2,000. <strong>Ohio:</strong> $2,000. <strong>Virginia:</strong> $2,600.</p>
+<p>  <strong>Borrowers in these states are subject to these maximum loan sizes:</strong> <strong>North Carolina:</strong> $11,000 for unsecured loans to all customers; $11,000 for secured loans to present customers. <strong>Maine:</strong> $7,000. <strong>Mississippi:</strong> $12,000. <strong>West Virginia:</strong> $13,500. Loans to purchase a motor vehicle or powersports equipment from select Maine, Mississippi, and North Carolina dealerships are not subject to these maximum loan sizes.</p>
+</dd></div><div _ngcontent-serverapp-c24="" data-role="footnote-container" class="footer-target flex ng-star-inserted" id="footnote-trim"><dt _ngcontent-serverapp-c24="" data-role="footnote-marker" class="pr-2">4</dt><dd _ngcontent-serverapp-c24="" data-role="footnote-content" class="grow"><p>Services provided by OneMain Trim, LLC d/b/a Trim by OneMain.  Average savings are estimated from January 31, 2021 through January 30, 2022. To learn how savings were calculated, visit <a href="http://asktrim.com/OMF_FAQ">http://asktrim.com/OMF_FAQ</a>.</p>
+</dd></div><div _ngcontent-serverapp-c24="" data-role="footnote-container" class="footer-target flex ng-star-inserted" id="footnote-brightway"><dt _ngcontent-serverapp-c24="" data-role="footnote-marker" class="pr-2">5</dt><dd _ngcontent-serverapp-c24="" data-role="footnote-content" class="grow"><p>BrightWay<sup>®</sup> is a registered trademark of OneMain Financial Holdings, LLC. The BrightWay credit card is issued by WebBank.</p>
+</dd></div><!----></dl></omf-footer-footnotes><!----><!----><!----><!----></div></div></div></omf-footer-legal></div><div class="py-10 xl:py-16"><omf-footer-screen-share><div class="flex justify-center"><omf-button omfstartcobrowse="" variant="secondary" data-role="footer-share-screen-button" backgroundtheme="dark" _nghost-serverapp-c2=""><button _ngcontent-serverapp-c2="" type="button" class="text-center ring-offset-2 focus:ring-2 focus-visible:outline focus-visible:outline-offset-2 focus-visible:outline-2 active:brightness-75 disabled:opacity-50 disabled:brightness-100 variant-secondary size-medium width-default ring-omf-white outline-omf-white ring-offset-omf-sky" data-tracked="true"><span class="flex gap-x-2"><omf-icon name="share-screen"><svg-icon><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+  <path d="M19.5 7.5H22.5V19.5H6.5V18.47" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"></path>
+  <path d="M19.5 9.5H22.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"></path>
+  <path d="M17.5 4.5H1.5V16.5H17.5V4.5Z" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"></path>
+  <path d="M1.5 6.5H17.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg></svg-icon></omf-icon> Screen Share </span></button></omf-button></div></omf-footer-screen-share></div></div></omf-container></div></div></omf-footer></footer></div>
+</omf-root>
+
+
+  
+<span id="cobrowsing-mouse-container"></span>
+
+</body>
+
+<div class="mouseCutout"></div>   
+<div class="mouseProxy"></div>   
+    
+    
+<div class="button-container">
+  <button class="cataractsToggle">Cataracts</button>
+  <!-- <button class="contrastToggle">Low Contrast</button> -->
+  <button class="tunnelVisionToggle">Glaucoma</button>
+  <button class="macularDegenerationToggle">Macular Degeneration</button>
+  <button class="colorBlindnessProtanopiaToggle">Protanopia</button>
+  <button class="colorBlindnessTritanopiaToggle">Tritanopia</button>
+  <button class="blindToggle">Blind</button>
+  <button class="dyslexiaToggle">Dyslexia</button>
+  <button class="motorToggle">Motor Control</button>
+</div>
+<script src="https://code.jquery.com/jquery-3.7.0.min.js" crossorigin="anonymous"></script>
+<!-- <script src="/assets/js/accessibility-barrier-overlay.js" defer></script> -->
+<script>
+  $(document).ready(function () {
 
     var beforeScramble = $(".scramble").html();
 
     function blindOverlay(s) {
+      const skip = document.getElementById('SkipContentButton');
+            if (skip) {
+              console.log("ran");
+              
+              skip.setAttribute('tabindex', '-1');
+              skip.focus();
+            }
         if(s == "on") {
             let styles = {
                 position: "fixed",
@@ -264,8 +423,12 @@
                 zIndex: 10000,
                 width: "100vw", 
                 height: "100vh",
-                backgroundColor: "#000",
+                pointerEvents: 'none',
+                backgroundColor: 'rgba(255, 255, 255, 0.25)',
+                backdropFilter: 'blur(200px)',
+                WebkitBackdropFilter: 'blur(200px)'
             };
+            
             const blackOverlay = $("<div class='blackOverlay'></div>").css(styles);
             $("body").prepend(blackOverlay);
         }
@@ -283,38 +446,96 @@
         }
     }
 
-    function tunnelVisionOverlay(s) {
-        if(s == "on") {
-            let styles = {
-                display: "block",
-                position: 'absolute',
-                top: '0',
-                left: '0',
-                zIndex: 10000,
-                width: "100%",
-                height: "100%",
-                background: "#000"
-            }
-            
-            $("body").css("position", "relative");
-            $(".mouseCutout").css(styles);
-            
-            $(document).mousemove(function(e) {
+    function tunnelVisionOverlay(on) {
+      const RADIUS = 100;
+      const FEATHER =  100;
 
-                let X = e.pageX;
-                let Y = e.pageY;
+      let overlay = document.querySelector('.mouseCutout');
+      if (!overlay) {
+        overlay = document.createElement('div');
+        overlay.className = 'mouseCutout';
+        document.body.appendChild(overlay);
+      }
 
-                $('.mouseCutout').css("background", "radial-gradient(circle at " + X + "px " + Y + "px, transparent, #000 5%)");
+      if (on === 'on') {
+        document.body.style.cursor = 'none';
+        Object.assign(overlay.style, {
+          position:   'fixed',
+          top:        '0',
+          left:       '0',
+          width:      '100vw',
+          height:     '100vh',
+          zIndex:     10000,
+          pointerEvents: 'none',
+          backdropFilter:       'blur(35px)',
+          WebkitBackdropFilter: 'blur(35px)',
+          maskImage:            `radial-gradient(circle ${RADIUS + FEATHER}px at 0px 0px, transparent ${RADIUS}px, black ${RADIUS + FEATHER}px)`,
+          WebkitMaskImage:      `radial-gradient(circle ${RADIUS + FEATHER}px at 0px 0px, transparent ${RADIUS}px, black ${RADIUS + FEATHER}px)`
+        });
 
-            });
-        }
+        document.addEventListener('mousemove', moveSpot);
 
-        if(s == "off") {
-            let styles = {
-                display: "none"
-            }
-            $(".mouseCutout").css(styles);
-        }
+      } else {
+        document.body.style.cursor = '';
+        overlay.remove();
+        document.removeEventListener('mousemove', moveSpot);
+      }
+
+      function moveSpot(e) {
+        const x = e.clientX;
+        const y = e.clientY;
+        const mask = `radial-gradient(circle ${RADIUS + FEATHER}px at ${x}px ${y}px, transparent ${RADIUS}px, black ${RADIUS + FEATHER}px)`;
+        overlay.style.maskImage       = mask;
+        overlay.style.WebkitMaskImage = mask;
+      }
+    }
+    
+    function macularDegenOverlay(on) {
+      const RADIUS  = 200; 
+      const FEATHER =  200;  
+
+      let overlay = document.querySelector('.mouseCutout');
+      if (!overlay) {
+        overlay = document.createElement('div');
+        overlay.className = 'mouseCutout';
+        document.body.appendChild(overlay);
+      }
+
+      if (on === 'on') {
+        document.body.style.cursor = 'none';
+        Object.assign(overlay.style, {
+          position:            'fixed',
+          top:                 '0',
+          left:                '0',
+          width:               '100vw',
+          height:              '100vh',
+          pointerEvents:       'none',
+          zIndex:              10000,
+          backdropFilter:       'blur(50px)',
+          WebkitBackdropFilter: 'blur(50px)',
+          maskImage:            `radial-gradient(circle ${RADIUS}px at -9999px -9999px, black ${RADIUS}px, transparent ${RADIUS + FEATHER}px)`,
+          WebkitMaskImage:      `radial-gradient(circle ${RADIUS}px at -9999px -9999px, black ${RADIUS}px, transparent ${RADIUS + FEATHER}px)`
+        });
+
+        document.addEventListener('mousemove', moveSpot);
+
+      } else {
+        document.body.style.cursor = '';
+        document.removeEventListener('mousemove', moveSpot);
+        overlay.remove();
+      }
+
+      function moveSpot(e) {
+        const x = e.clientX;
+        const y = e.clientY;
+
+        // new mask centered at (x,y)
+        const mask = `radial-gradient(circle ${RADIUS}px at ${x}px ${y}px,
+                            black ${RADIUS}px, transparent ${RADIUS + FEATHER}px)`;
+
+        overlay.style.maskImage       = mask;
+        overlay.style.WebkitMaskImage = mask;
+      }
     }
 
     function dyslexiaOverlay(s, beforeScramble = null) {
@@ -461,12 +682,67 @@
 
     }
 
+    /**
+     * Toggle a color‐blindness simulation filter on the entire page.
+     *
+     * @param {'protanopia'|'deuteranopia'|'tritanopia'} type
+     * @param {boolean} on
+    */
+    function simulateColorBlindness(type, on) {
+      const matrices = {
+        protanopia:    '0.567,0.433,0,0,0  0.558,0.442,0,0,0  0,0.242,0.758,0,0  0,0,0,1,0',
+        deuteranopia:  '0.625,0.375,0,0,0  0.7,0.3,0,0,0      0,0.3,0.7,0,0      0,0,0,1,0',
+        tritanopia:    '0.95,0.05,0,0,0   0,0.433,0.567,0,0  0,0.475,0.525,0,0  0,0,0,1,0'
+      };
 
-    // blindOverlay();
-    // cataractsOverlay();
-    // tunnelVisionOverlay();
-    // dyslexiaOverlay();
-    // motorOverlay();
+      // 1) ensure our <svg><defs>…filters…</defs></svg> is in the DOM
+      let svg = document.getElementById('colorBlindFilters');
+      if (!svg) {
+        svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+        svg.id = 'colorBlindFilters';
+        svg.setAttribute('style', 'position:absolute;width:0;height:0;pointer-events:none;');
+
+        const defs = document.createElementNS(svg.namespaceURI, 'defs');
+        for (const key in matrices) {
+          const filter = document.createElementNS(svg.namespaceURI, 'filter');
+          filter.id = `cb-${key}`;
+
+          const fe = document.createElementNS(svg.namespaceURI, 'feColorMatrix');
+          fe.setAttribute('type', 'matrix');
+          fe.setAttribute('values', matrices[key]);
+          filter.appendChild(fe);
+
+          defs.appendChild(filter);
+        }
+
+        svg.appendChild(defs);
+        document.body.appendChild(svg);
+      }
+
+      // 2) apply or remove the filter on the root element
+      if (on && matrices[type]) {
+        document.documentElement.style.filter = `url(#cb-${type})`;
+      } else {
+        document.documentElement.style.filter = '';
+      }
+    }
+
+    /**
+     * Toggle a low-contrast simulation on the entire page.
+     *
+     * @param {boolean} on
+     * @param {number} [level=0.5]  Contrast ratio (0–1). Lower → less contrast.
+    */
+    function simulateLowContrast(on, level = 0.5) {
+      level = Math.min(1, Math.max(0, level));
+
+      if (on) {
+        document.documentElement.style.filter = `contrast(${level * 100}%)`;
+      } else {
+        document.documentElement.style.filter = '';
+      }
+    }
+
 
     $("h1, h2, h3, h4, h5, h6, a, button, p").addClass("scramble");
 
@@ -499,6 +775,16 @@
             tunnelVisionOverlay("off");
         }
     });
+    
+    $(".macularDegenerationToggle").click(function (e) { 
+        e.preventDefault();
+        $(this).toggleClass("on");
+        if( $(this).hasClass("on") ) {
+            macularDegenOverlay("on");
+        } else {
+            macularDegenOverlay("off");
+        }
+    });
 
     $(".dyslexiaToggle").click(function (e) { 
         e.preventDefault();
@@ -520,7 +806,36 @@
             motorOverlay("off");
         }
     });
+    
+    $(".colorBlindnessProtanopiaToggle").click(function (e) { 
+        e.preventDefault();
+        $(this).toggleClass("on");
+        if( $(this).hasClass("on") ) {
+            simulateColorBlindness("protanopia", true);
+          } else {
+            simulateColorBlindness("protanopia", false);
+        }
     });
-  </script>
-</body>
+
+    $(".colorBlindnessTritanopiaToggle").click(function (e) { 
+        e.preventDefault();
+        $(this).toggleClass("on");
+        if( $(this).hasClass("on") ) {
+            simulateColorBlindness("tritanopia", true);
+          } else {
+            simulateColorBlindness("tritanopia", false);
+        }
+    });
+    
+    $(".contrastToggle").click(function (e) { 
+        e.preventDefault();
+        $(this).toggleClass("on");
+        if( $(this).hasClass("on") ) {
+          simulateLowContrast(true, 0.25);
+        } else {
+          simulateLowContrast(false);
+        }
+    });
+  });
+</script>
 </html>

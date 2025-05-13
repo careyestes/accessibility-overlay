@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="375" height="100" preserveAspectRatio="none">
+  <rect width="375" height="100" fill="white" />
+  <path d="M 0 0 L 375 0 L 375 88 C 375 88 352.214 32 187.5 32 C 22.786 32 0 88 0 88 L 0 0 Z" fill="#E0EBF5" />
+  <path d="M 0 -1.99 L 375 -1.99 L 375 0.01 L 0 0.01 L 0 -1.99 Z M 0 0 L 375 0 L 375 56 C 375 56 352.214 0.313 187.5 0.313 C 22.786 0.313 0 56 0 56 L 0 0 Z" style="fill: rgb(37, 89, 217);" />
+</svg>

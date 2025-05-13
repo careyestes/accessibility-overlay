@@ -1,0 +1,9 @@
+<!-- <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="Small/Arrow">
+<path id="Arrow Right" d="M23 6L11.98 22L1 6" stroke="#2659D9" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+</svg> -->
+
+<svg xmlns="http://www.w3.org/2000/svg" width="25" height="24" viewBox="0 0 25 24" fill="none">
+  <path d="M6 9.5L12.5 16.5L19 9.5" stroke="#2659D9" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

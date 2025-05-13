@@ -1,0 +1,25 @@
+<svg width="768" height="82" viewBox="0 0 768 82" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0_494_2138)">
+<g filter="url(#filter0_d_494_2138)">
+<path d="M768 100.318H0V82.2263C45.2511 53.5167 134.444 46.0434 213.333 46.0434C262.284 46.4778 311.196 51.0562 360.078 55.6318C368.053 56.3783 376.027 57.1246 384 57.853C440.924 63.0527 497.809 67.3309 554.667 64.1348C642.165 59.2165 729.652 40.5219 768 18.9062V100.318Z" fill="#FF0000"/>
+</g>
+<path d="M768 82.2263L0 82.2263C45.2511 53.5167 134.444 46.0434 213.333 46.0434C262.284 46.4778 311.196 51.0562 360.078 55.6318C368.053 56.3783 376.027 57.1247 384 57.853C440.924 63.0527 497.809 67.3309 554.667 64.1348C642.165 59.2165 729.652 40.5219 768 18.9062L768 82.2263Z" fill="white"/>
+<path d="M773.333 3.60376C688.889 67.4625 530.015 89.1285 384 51.8476C273.282 23.5787 147.327 38.2796 64.6667 66.0247M36.889 76.5212C38.4216 75.868 39.9773 75.2191 41.5556 74.5749M48.2223 71.9334C51.2599 70.7648 54.3722 69.6136 57.5556 68.4815" stroke="#FFC400" stroke-width="2" stroke-linecap="round"/>
+<path d="M384 82.0002H768L768 18.6802C729.652 40.2958 642.165 58.9904 554.667 63.9088C497.809 67.1048 440.924 62.8267 384 57.6269L384 82.0002Z" fill="white"/>
+</g>
+<defs>
+<filter id="filter0_d_494_2138" x="-4" y="10.9062" width="776" height="89.4114" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+<feOffset dy="-4"/>
+<feGaussianBlur stdDeviation="2"/>
+<feComposite in2="hardAlpha" operator="out"/>
+<feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"/>
+<feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_494_2138"/>
+<feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_494_2138" result="shape"/>
+</filter>
+<clipPath id="clip0_494_2138">
+<rect width="768" height="81.4115" fill="white" transform="translate(0 0.588623)"/>
+</clipPath>
+</defs>
+</svg>

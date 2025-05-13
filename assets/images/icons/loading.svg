@@ -1,0 +1,74 @@
+<svg viewBox="0 0 513 79">
+  <style type="text/css">
+    .st0 {
+      position: relative;
+      fill:none;
+      stroke:#FFC400;
+      stroke-width:2px;
+      stroke-linecap:round;
+      stroke-miterlimit:10;
+    }
+    .path.large {
+      z-index: 3;
+      stroke-dasharray: 500;
+      stroke-dashoffset: -500;
+      animation: dashLarge 2s ease-out infinite;
+    }
+    @keyframes dashLarge {
+      0% {
+        stroke-dashoffset: -500;
+      }
+      25% {
+        stroke-dashoffset: -100;
+      }
+      50% {
+        stroke-dashoffset: 0;
+      }
+      75% {
+        stroke-dashoffset: 400;
+      }
+      90% {
+        stroke-dashoffset: 500;
+      }
+      100% {
+        stroke-dashoffset: 500;
+      }
+    }
+    .circle {
+      transform-origin: center center;
+      opacity: 0;
+      stroke-width: 0;
+      animation: fade 2s ease-out infinite;
+    }
+    @keyframes fade {
+      0% {
+        opacity: 0;
+        stroke-width: 0;
+      }
+      45% {
+        opacity: 0;
+        stroke-width: 0;
+      }
+      50% {
+        opacity: 0;
+        stroke-width: 0;
+      }
+      90% {
+        opacity: 0;
+        stroke-width: 0;
+      }
+      98% {
+        opacity: 1;
+        stroke-width: 2px;
+      }
+      100% {
+        opacity: 0;
+        stroke-width: 0;
+      }
+    }
+  </style>
+    <g>
+       <path class="st0 path large" d="M502.9002991,12c-27.0249634,24.33675-76.6345215,60.4332581-154.2642822,60.4332581c-110.5496826,0-126.1674957-32.4522018-213.9029083-31.6939735c-62.0486603,0.5362358-98.3005066,15.1806831-116.738945,22.6872253"/>
+    </g>
+    <circle class="st0 circle" cx="507" cy="7.5" r="3"/>
+</svg>
