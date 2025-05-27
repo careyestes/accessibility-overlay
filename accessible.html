@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Demo: Accessible</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      font-size: 16px;
+      color: #111;
+      background: #fff;
+      line-height: 1.5;
+    }
+    header, nav, main, footer {
+      padding: 1rem;
+    }
+    header {
+      background: #fffefb;
+      color: #000;
+    }
+    nav {
+      background: #eee;
+    }
+    nav a {
+      margin-right: 1rem;
+      color: #005a9c;
+      text-decoration: none;
+    }
+    .content img {
+      max-width: 100%;
+      height: auto;
+    }
+    .btn {
+      background: #005a9c;
+      color: #fff;
+      border: none;
+      padding: 0.5rem 1rem;
+      cursor: pointer;
+    }
+    .btn:focus {
+      outline: 3px dashed #ffbf47;
+    }
+    form input {
+      display: block;
+      width: 100%;
+      max-width: 300px;
+      margin-bottom: 1rem;
+      padding: 0.5rem;
+      border: 1px solid #777;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <img src="https://dynamic.brandcrowd.com/asset/logo/dfa186ac-72ae-43e3-a75e-cd85ac3583e2/logo-search-grid-1x?logoTemplateVersion=4&v=638502297381070000&text=Good+Web+Design" alt="Logo of the Good Web Design Company" />
+    <h1>Welcome to Our Site</h1>
+  </header>
+
+  <nav aria-label="Main navigation">
+    <a href="#" role="menuitem">Home</a>
+    <a href="#services" role="menuitem">Our Services</a>
+    <a href="#contact" role="menuitem">Contact Us</a>
+  </nav>
+
+  <main>
+    <section id="services" aria-labelledby="services-heading">
+      <h2 id="services-heading">Our Services</h2>
+      <p>We offer a variety of solutions to help your business grow, including consulting, design, and development.</p>
+      <img width="20%" height="auto" src="https://static.vecteezy.com/system/resources/previews/047/785/476/large_2x/an-illustration-of-a-diverse-group-of-people-collaborating-on-a-project-around-a-table-they-are-using-laptops-and-writing-materials-free-vector.jpg"
+           alt="Illustration showing our team collaborating on a project" />
+      <div>
+        <button class="btn" aria-label="Learn more about our services">Learn More</button>
+      </div>
+    </section>
+
+    <section aria-labelledby="signup-heading">
+      <h2 id="signup-heading">Sign Up</h2>
+      <form action="#" method="post" aria-describedby="signup-desc">
+        <p id="signup-desc">Create an account to get started.</p>
+
+        <label for="name">Full Name</label>
+        <input id="name" name="name" type="text" required />
+
+        <label for="email">Email Address</label>
+        <input id="email" name="email" type="email" required />
+
+        <label for="password">Password</label>
+        <input id="password" name="password" type="password" required minlength="8" />
+
+        <button type="submit" class="btn">Create Account</button>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2025 Example Company</p>
+    <p><a href="#top">Back to top</a></p>
+  </footer>
+</body>
+</html>
